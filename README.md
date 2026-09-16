@@ -21,20 +21,6 @@ Pipeline ini menghasilkan data yang dapat digunakan untuk menganalisis:
 
 ## Arsitektur
 
-```mermaid
-flowchart LR
-    A[SteamSpy API] --> B[Bronze MinIO]
-    C[RAWG API] --> B
-    B --> D[Matching SteamSpy-RAWG]
-    D --> E[game_source_mapping]
-    D --> F[Dimension Tables]
-    B --> G[Cleaning dan Transformation]
-    E --> G
-    G --> H[fact_game_snapshot]
-    F --> I[Gold Data Marts]
-    H --> I
-    I --> J[Metabase]
-```
 
 ### Layer data
 
@@ -145,24 +131,10 @@ final project/
 - Akses internet untuk SteamSpy API dan RAWG API.
 - Port berikut tersedia: `3000`, `5433`, `5434`, `8080`, `9000`, dan `9001`.
 
-## Konfigurasi Environment
-
-Buat file `.env` di root proyek. Jangan memasukkan API key atau password asli ke repository publik.
-
-```env
-RAWG_API_KEY=isi_dengan_rawg_api_key
-MINIO_ROOT_USER=minioadmin
-MINIO_ROOT_PASSWORD=ganti_dengan_password_minio
-POSTGRES_USER=warehouse
-POSTGRES_PASSWORD=ganti_dengan_password_warehouse
-POSTGRES_DB=warehouse
-```
-
-Variabel tersebut dibaca oleh Docker Compose. Nilai koneksi internal antar-container sudah diatur di `docker-compose.yaml`.
-
 ## Menjalankan Proyek
 
-Dari folder `final project`, jalankan:
+Dari folder `
+Steam_Game_Value_Analytics_Pipeline` ini, jalankan:
 
 ```bash
 docker compose up -d
