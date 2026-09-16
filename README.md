@@ -199,13 +199,6 @@ Gold data marts yang dibuat oleh pipeline:
 - `mart_daily_summary`
 - `mart_price_value_segment`
 
-## Catatan Keamanan dan Operasional
-
-- Jangan commit file `.env` ke GitHub.
-- API key RAWG dan password yang pernah terekspos perlu diganti sebelum repository dipublikasikan.
-- Jangan menggunakan kredensial default `admin/admin` pada lingkungan produksi.
-- File SQL inisialisasi PostgreSQL hanya otomatis dijalankan saat volume database masih kosong.
-- SteamSpy memiliki jeda antar-request untuk mengurangi risiko rate limit. Pengambilan tiga halaman dapat membutuhkan waktu beberapa menit.
 
 ## Teknologi
 
