@@ -1,0 +1,78 @@
+[2026-09-08T12:48:45.735+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-08T12:48:45.766+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [queued]>
+[2026-09-08T12:48:45.774+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [queued]>
+[2026-09-08T12:48:45.774+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-09-08T12:48:45.785+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): build_gold_data_mart> on 2026-09-07 02:00:00+00:00
+[2026-09-08T12:48:45.792+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=826) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-08T12:48:45.792+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'build_gold_data_mart', 'scheduled__2026-09-07T02:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp_2a9vkf4']
+[2026-09-08T12:48:45.793+0000] {standard_task_runner.py:64} INFO - Started process 827 to run task
+[2026-09-08T12:48:45.794+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask build_gold_data_mart
+[2026-09-08T12:48:45.835+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [running]> on host d6ba0ff7b234
+[2026-09-08T12:48:45.914+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='build_gold_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2026-09-07T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-07T02:00:00+00:00'
+[2026-09-08T12:48:45.915+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-08T12:48:45.916+0000] {steam_analytics.py:236} INFO - Memulai build SELURUH Gold Data Mart untuk 2026-09-07
+[2026-09-08T12:48:45.917+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-09-08T12:48:45.918+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-08T12:48:45.923+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-08T12:48:45.923+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/steam_analytics.py", line 241, in build_gold_data_mart
+    postgres.build_all_gold_marts(conn, logical_date)
+  File "/opt/airflow/src/load/postgres.py", line 537, in build_all_gold_marts
+    build_gold_mart(conn, snapshot_date)
+    ^^^^^^^^^^^^^^^
+NameError: name 'build_gold_mart' is not defined. Did you mean: 'build_all_gold_marts'?
+[2026-09-08T12:48:45.943+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=steam_analytics_daily, task_id=build_gold_data_mart, run_id=scheduled__2026-09-07T02:00:00+00:00, execution_date=20260907T020000, start_date=20260908T124845, end_date=20260908T124845
+[2026-09-08T12:48:45.953+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task build_gold_data_mart (name 'build_gold_mart' is not defined; 827)
+[2026-09-08T12:48:45.967+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-09-08T12:48:45.982+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-08T12:48:45.985+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-09T17:31:11.470+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-09T17:31:11.500+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [queued]>
+[2026-09-09T17:31:11.507+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [queued]>
+[2026-09-09T17:31:11.508+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-09-09T17:31:11.519+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): build_gold_data_mart> on 2026-09-07 02:00:00+00:00
+[2026-09-09T17:31:11.526+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=5653) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-09T17:31:11.525+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'build_gold_data_mart', 'scheduled__2026-09-07T02:00:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp1covnlb3']
+[2026-09-09T17:31:11.527+0000] {standard_task_runner.py:64} INFO - Started process 5654 to run task
+[2026-09-09T17:31:11.527+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask build_gold_data_mart
+[2026-09-09T17:31:11.569+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.build_gold_data_mart scheduled__2026-09-07T02:00:00+00:00 [running]> on host af106f5ed5d0
+[2026-09-09T17:31:11.642+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='build_gold_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2026-09-07T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-07T02:00:00+00:00'
+[2026-09-09T17:31:11.642+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-09T17:31:11.643+0000] {steam_analytics.py:236} INFO - Memulai build SELURUH Gold Data Mart untuk 2026-09-07
+[2026-09-09T17:31:11.644+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-09-09T17:31:11.645+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-09T17:31:11.650+0000] {postgres.py:717} INFO - Memulai pembangunan seluruh Gold Data Mart untuk 2026-09-07
+[2026-09-09T17:31:11.684+0000] {postgres.py:479} INFO - mart_game_ranking berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.699+0000] {postgres.py:535} INFO - mart_genre_analysis berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.711+0000] {postgres.py:574} INFO - mart_platform_analysis berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.715+0000] {postgres.py:627} INFO - mart_daily_summary berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.721+0000] {postgres.py:706} INFO - mart_price_value_segment berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.722+0000] {postgres.py:725} INFO - Seluruh Gold Data Mart berhasil dibangun untuk 2026-09-07
+[2026-09-09T17:31:11.722+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-09T17:31:11.723+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-09T17:31:11.733+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=build_gold_data_mart, run_id=scheduled__2026-09-07T02:00:00+00:00, execution_date=20260907T020000, start_date=20260909T173111, end_date=20260909T173111
+[2026-09-09T17:31:11.781+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-09T17:31:11.798+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-09T17:31:11.800+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

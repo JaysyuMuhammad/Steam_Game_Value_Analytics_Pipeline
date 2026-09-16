@@ -1,0 +1,321 @@
+version: "3.8"
+
+# ==============================================================================
+# Steam Game Value Analytics - Docker Compose
+# ==============================================================================
+
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.3
+
+  environment: &airflow-common-env
+
+    # --------------------------------------------------------------------------
+    # Python
+    # --------------------------------------------------------------------------
+    PYTHONPATH: "/opt/airflow"
+
+    _PIP_ADDITIONAL_REQUIREMENTS: "pandas requests thefuzz boto3 psycopg2-binary"
+
+
+    # --------------------------------------------------------------------------
+    # Airflow
+    # --------------------------------------------------------------------------
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow"
+
+    AIRFLOW__CORE__FERNET_KEY: ""
+
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+
+    AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth"
+
+
+    # --------------------------------------------------------------------------
+    # Airflow Connection ke PostgreSQL Data Warehouse
+    #
+    # Connection ID:
+    # postgres_warehouse
+    #
+    # Digunakan oleh:
+    # src/load/postgres.py
+    # --------------------------------------------------------------------------
+    AIRFLOW_CONN_POSTGRES_WAREHOUSE: "postgresql://warehouse:warehouse@postgres-warehouse:5432/warehouse"
+
+
+    # --------------------------------------------------------------------------
+    # SteamSpy
+    # --------------------------------------------------------------------------
+    STEAMSPY_BASE_URL: "https://steamspy.com/api.php"
+
+
+    # --------------------------------------------------------------------------
+    # RAWG
+    # --------------------------------------------------------------------------
+    RAWG_BASE_URL: "https://api.rawg.io/api"
+    RAWG_API_KEY: "${RAWG_API_KEY}"
+
+
+    # --------------------------------------------------------------------------
+    # MinIO
+    # --------------------------------------------------------------------------
+    MINIO_ENDPOINT: "minio:9000"
+    MINIO_ACCESS_KEY: "${MINIO_ROOT_USER}"
+    MINIO_SECRET_KEY: "${MINIO_ROOT_PASSWORD}"
+
+
+    # --------------------------------------------------------------------------
+    # Warehouse
+    #
+    # Ini masih dipertahankan karena mungkin digunakan oleh kode lain.
+    # Koneksi utama postgres.py menggunakan postgres_warehouse di atas.
+    # --------------------------------------------------------------------------
+    WAREHOUSE_DB_CONN: "postgresql+psycopg2://warehouse:warehouse@postgres-warehouse:5432/warehouse"
+
+
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/plugins:/opt/airflow/plugins
+    - ./src:/opt/airflow/src
+
+  depends_on:
+    postgres-airflow:
+      condition: service_healthy
+
+
+services:
+
+  # ============================================================================
+  # 1. PostgreSQL - Metadata Airflow
+  # ============================================================================
+
+  postgres-airflow:
+    image: postgres:15
+
+    container_name: postgres-airflow
+
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+
+    volumes:
+      - postgres-airflow-data:/var/lib/postgresql/data
+
+    ports:
+      - "5433:5432"
+
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+
+
+  # ============================================================================
+  # 2. PostgreSQL - Data Warehouse
+  # ============================================================================
+
+  postgres-warehouse:
+    image: postgres:15
+
+    container_name: postgres-warehouse
+
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse
+      POSTGRES_DB: warehouse
+
+    volumes:
+      - postgres-warehouse-data:/var/lib/postgresql/data
+
+      # SQL initialization
+      - ./sql/init:/docker-entrypoint-initdb.d
+
+    ports:
+      - "5434:5432"
+
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "warehouse"]
+      interval: 5s
+      retries: 5
+
+
+  # ============================================================================
+  # 3. MinIO
+  # ============================================================================
+
+  minio:
+    image: minio/minio:latest
+
+    container_name: minio
+
+    environment:
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
+
+    volumes:
+      - minio-data:/data
+
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+    command: server /data --console-address ":9001"
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "http://localhost:9000/minio/health/live"
+        ]
+      interval: 10s
+      retries: 5
+
+
+  # ============================================================================
+  # 4. MinIO Init
+  # ============================================================================
+
+  minio-init:
+    image: minio/mc:latest
+
+    container_name: minio-init
+
+    depends_on:
+      minio:
+        condition: service_healthy
+
+    environment:
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
+
+    entrypoint: >
+      /bin/sh -c "
+      until
+        (mc alias set myminio http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD)
+      do
+        echo '...menunggu MinIO siap...'
+        sleep 1;
+      done;
+
+      mc mb myminio/steam-analytics --ignore-existing;
+
+      mc anonymous set download myminio/steam-analytics;
+
+      echo 'Bucket steam-analytics siap dipakai.';
+
+      exit 0;
+      "
+
+
+  # ============================================================================
+  # 5. Airflow Init
+  # ============================================================================
+
+  airflow-init:
+    <<: *airflow-common
+
+    container_name: airflow-init
+
+    entrypoint: /bin/bash
+
+    command:
+      - -c
+      - |
+        airflow db migrate
+
+        airflow users create \
+          --username admin \
+          --password admin \
+          --firstname Jay \
+          --lastname DE \
+          --role Admin \
+          --email admin@example.com
+
+
+  # ============================================================================
+  # 6. Airflow Webserver
+  # ============================================================================
+
+  airflow-webserver:
+    <<: *airflow-common
+
+    container_name: airflow-webserver
+
+    command: webserver
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "--fail",
+          "http://localhost:8080/health"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
+  # ============================================================================
+  # 7. Airflow Scheduler
+  # ============================================================================
+
+  airflow-scheduler:
+    <<: *airflow-common
+
+    container_name: airflow-scheduler
+
+    command: scheduler
+
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+
+  # ============================================================================
+  # 8. Metabase
+  # ============================================================================
+
+  metabase:
+    image: metabase/metabase:latest
+
+    container_name: metabase
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - metabase-data:/metabase-data
+
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
+
+    depends_on:
+      postgres-warehouse:
+        condition: service_healthy
+
+
+# ==============================================================================
+# VOLUMES
+# ==============================================================================
+
+volumes:
+
+  postgres-airflow-data:
+
+  postgres-warehouse-data:
+
+  minio-data:
+
+  metabase-data:

@@ -1,0 +1,28 @@
+[2026-09-13T02:22:10.220+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-13T02:22:10.249+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart manual__2026-09-13T02:19:52.588305+00:00 [queued]>
+[2026-09-13T02:22:10.256+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.build_gold_data_mart manual__2026-09-13T02:19:52.588305+00:00 [queued]>
+[2026-09-13T02:22:10.257+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-13T02:22:10.269+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): build_gold_data_mart> on 2026-09-13 02:19:52.588305+00:00
+[2026-09-13T02:22:10.276+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=278) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-13T02:22:10.275+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'build_gold_data_mart', 'manual__2026-09-13T02:19:52.588305+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpe0kvn1jf']
+[2026-09-13T02:22:10.276+0000] {standard_task_runner.py:64} INFO - Started process 279 to run task
+[2026-09-13T02:22:10.277+0000] {standard_task_runner.py:91} INFO - Job 92: Subtask build_gold_data_mart
+[2026-09-13T02:22:10.317+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.build_gold_data_mart manual__2026-09-13T02:19:52.588305+00:00 [running]> on host fcb1bc3b8094
+[2026-09-13T02:22:10.398+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='build_gold_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2026-09-13T02:19:52.588305+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-13T02:19:52.588305+00:00'
+[2026-09-13T02:22:10.399+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-13T02:22:10.400+0000] {steam_analytics.py:213} INFO - Memulai build SELURUH Gold Data Mart untuk 2026-09-13
+[2026-09-13T02:22:10.401+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-09-13T02:22:10.401+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-13T02:22:10.406+0000] {postgres.py:691} INFO - Memulai pembangunan seluruh Gold Data Mart untuk 2026-09-13
+[2026-09-13T02:22:10.434+0000] {postgres.py:453} INFO - mart_game_ranking berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.457+0000] {postgres.py:509} INFO - mart_genre_analysis berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.477+0000] {postgres.py:548} INFO - mart_platform_analysis berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.482+0000] {postgres.py:601} INFO - mart_daily_summary berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.489+0000] {postgres.py:680} INFO - mart_price_value_segment berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.489+0000] {postgres.py:699} INFO - Seluruh Gold Data Mart berhasil dibangun untuk 2026-09-13
+[2026-09-13T02:22:10.490+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-13T02:22:10.491+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-13T02:22:10.500+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=build_gold_data_mart, run_id=manual__2026-09-13T02:19:52.588305+00:00, execution_date=20260913T021952, start_date=20260913T022210, end_date=20260913T022210
+[2026-09-13T02:22:10.530+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-13T02:22:10.548+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-13T02:22:10.550+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

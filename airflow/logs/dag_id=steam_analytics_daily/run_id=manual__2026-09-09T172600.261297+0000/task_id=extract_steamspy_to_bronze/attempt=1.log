@@ -1,0 +1,20 @@
+[2026-09-09T17:26:01.924+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-09T17:26:01.977+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze manual__2026-09-09T17:26:00.261297+00:00 [queued]>
+[2026-09-09T17:26:01.985+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze manual__2026-09-09T17:26:00.261297+00:00 [queued]>
+[2026-09-09T17:26:01.986+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-09T17:26:01.998+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-09 17:26:00.261297+00:00
+[2026-09-09T17:26:02.005+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'manual__2026-09-09T17:26:00.261297+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpl5tpr66u']
+[2026-09-09T17:26:02.006+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=5585) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-09T17:26:02.007+0000] {standard_task_runner.py:91} INFO - Job 19: Subtask extract_steamspy_to_bronze
+[2026-09-09T17:26:02.007+0000] {standard_task_runner.py:64} INFO - Started process 5586 to run task
+[2026-09-09T17:26:02.049+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze manual__2026-09-09T17:26:00.261297+00:00 [running]> on host af106f5ed5d0
+[2026-09-09T17:26:02.132+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-09T17:26:00.261297+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-09T17:26:00.261297+00:00'
+[2026-09-09T17:26:02.133+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-09T17:26:02.134+0000] {steam_analytics.py:84} INFO - Memulai extract SteamSpy untuk 2026-09-09
+[2026-09-09T17:26:02.402+0000] {steam_analytics.py:87} INFO - Bronze SteamSpy 2026-09-09 sudah ada. API call dilewati.
+[2026-09-09T17:26:02.402+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-09T17:26:02.403+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-09T17:26:02.413+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=manual__2026-09-09T17:26:00.261297+00:00, execution_date=20260909T172600, start_date=20260909T172601, end_date=20260909T172602
+[2026-09-09T17:26:02.461+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-09T17:26:02.493+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-09T17:26:02.495+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

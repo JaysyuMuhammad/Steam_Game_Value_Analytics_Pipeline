@@ -1,0 +1,141 @@
+[2026-09-10T07:01:49.869+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-10T07:01:49.901+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.process_facts_and_silver_layer scheduled__2026-09-09T02:00:00+00:00 [queued]>
+[2026-09-10T07:01:49.910+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.process_facts_and_silver_layer scheduled__2026-09-09T02:00:00+00:00 [queued]>
+[2026-09-10T07:01:49.911+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-10T07:01:49.924+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): process_facts_and_silver_layer> on 2026-09-09 02:00:00+00:00
+[2026-09-10T07:01:49.931+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-10T07:01:49.932+0000] {standard_task_runner.py:64} INFO - Started process 197 to run task
+[2026-09-10T07:01:49.931+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'process_facts_and_silver_layer', 'scheduled__2026-09-09T02:00:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp_n3e35ol']
+[2026-09-10T07:01:49.933+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask process_facts_and_silver_layer
+[2026-09-10T07:01:49.985+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.process_facts_and_silver_layer scheduled__2026-09-09T02:00:00+00:00 [running]> on host fcb1bc3b8094
+[2026-09-10T07:01:50.096+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='process_facts_and_silver_layer' AIRFLOW_CTX_EXECUTION_DATE='2026-09-09T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-09T02:00:00+00:00'
+[2026-09-10T07:01:50.097+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-10T07:01:50.288+0000] {minio_client.py:87} INFO - Berhasil membaca 3000 record dari s3://steam-analytics/bronze/steamspy/2026-09-09/data.json
+[2026-09-10T07:01:50.291+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-09-10T07:01:50.292+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-10T07:01:50.307+0000] {postgres.py:306} INFO - Partisi fact_game_snapshot_2026_09 dipastikan tersedia
+[2026-09-10T07:01:50.327+0000] {postgres.py:184} INFO - get_game_lookup: 2886 game dimuat dari dim_game
+[2026-09-10T07:01:50.328+0000] {cleaning.py:219} WARNING - appid 1063730 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.329+0000] {cleaning.py:219} WARNING - appid 291480 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.332+0000] {cleaning.py:219} WARNING - appid 203160 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.333+0000] {cleaning.py:219} WARNING - appid 1172620 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.333+0000] {cleaning.py:219} WARNING - appid 221380 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.334+0000] {cleaning.py:219} WARNING - appid 439700 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.335+0000] {cleaning.py:219} WARNING - appid 677620 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.335+0000] {cleaning.py:219} WARNING - appid 397900 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.336+0000] {cleaning.py:219} WARNING - appid 273110 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.337+0000] {cleaning.py:219} WARNING - appid 223750 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.338+0000] {cleaning.py:219} WARNING - appid 1366800 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.339+0000] {cleaning.py:219} WARNING - appid 447040 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.340+0000] {cleaning.py:219} WARNING - appid 33900 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.341+0000] {cleaning.py:219} WARNING - appid 4560 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.342+0000] {cleaning.py:219} WARNING - appid 838350 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.343+0000] {cleaning.py:219} WARNING - appid 38400 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.344+0000] {cleaning.py:219} WARNING - appid 629520 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.344+0000] {cleaning.py:219} WARNING - appid 1468810 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.345+0000] {cleaning.py:219} WARNING - appid 105450 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.346+0000] {cleaning.py:219} WARNING - appid 466560 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.346+0000] {cleaning.py:219} WARNING - appid 1466860 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.348+0000] {cleaning.py:219} WARNING - appid 394510 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.348+0000] {cleaning.py:219} WARNING - appid 640820 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.349+0000] {cleaning.py:219} WARNING - appid 15620 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.350+0000] {cleaning.py:219} WARNING - appid 55150 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.350+0000] {cleaning.py:219} WARNING - appid 314160 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.351+0000] {cleaning.py:219} WARNING - appid 1659040 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.352+0000] {cleaning.py:219} WARNING - appid 208140 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.352+0000] {cleaning.py:219} WARNING - appid 206500 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.353+0000] {cleaning.py:219} WARNING - appid 10500 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.355+0000] {cleaning.py:219} WARNING - appid 24980 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.356+0000] {cleaning.py:219} WARNING - appid 34030 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.357+0000] {cleaning.py:219} WARNING - appid 736220 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.359+0000] {cleaning.py:219} WARNING - appid 4570 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.360+0000] {cleaning.py:219} WARNING - appid 17460 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.360+0000] {cleaning.py:219} WARNING - appid 4700 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.363+0000] {cleaning.py:219} WARNING - appid 972660 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.365+0000] {cleaning.py:219} WARNING - appid 859570 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.367+0000] {cleaning.py:219} WARNING - appid 38410 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.367+0000] {cleaning.py:219} WARNING - appid 212740 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.369+0000] {cleaning.py:219} WARNING - appid 747610 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.370+0000] {cleaning.py:219} WARNING - appid 2390840 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.371+0000] {cleaning.py:219} WARNING - appid 250820 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.372+0000] {cleaning.py:219} WARNING - appid 541570 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.373+0000] {cleaning.py:219} WARNING - appid 1325860 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.374+0000] {cleaning.py:219} WARNING - appid 997070 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.375+0000] {cleaning.py:219} WARNING - appid 282660 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.375+0000] {cleaning.py:219} WARNING - appid 329110 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.376+0000] {cleaning.py:219} WARNING - appid 962730 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.377+0000] {cleaning.py:219} WARNING - appid 469600 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.378+0000] {cleaning.py:219} WARNING - appid 301750 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.379+0000] {cleaning.py:219} WARNING - appid 648120 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.380+0000] {cleaning.py:219} WARNING - appid 1473480 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.381+0000] {cleaning.py:219} WARNING - appid 400750 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.382+0000] {cleaning.py:219} WARNING - appid 244930 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.383+0000] {cleaning.py:219} WARNING - appid 689580 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.385+0000] {cleaning.py:219} WARNING - appid 1283970 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.385+0000] {cleaning.py:219} WARNING - appid 875210 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.388+0000] {cleaning.py:219} WARNING - appid 439350 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.389+0000] {cleaning.py:219} WARNING - appid 1469280 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.390+0000] {cleaning.py:219} WARNING - appid 400630 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.392+0000] {cleaning.py:219} WARNING - appid 21000 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.392+0000] {cleaning.py:219} WARNING - appid 1013320 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.393+0000] {cleaning.py:219} WARNING - appid 605740 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.394+0000] {cleaning.py:219} WARNING - appid 672680 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.395+0000] {cleaning.py:219} WARNING - appid 1068820 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.395+0000] {cleaning.py:219} WARNING - appid 991780 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.396+0000] {cleaning.py:219} WARNING - appid 1016800 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.397+0000] {cleaning.py:219} WARNING - appid 46510 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.398+0000] {cleaning.py:219} WARNING - appid 1278480 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.399+0000] {cleaning.py:219} WARNING - appid 550470 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.402+0000] {cleaning.py:219} WARNING - appid 335670 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.403+0000] {cleaning.py:219} WARNING - appid 351030 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.403+0000] {cleaning.py:219} WARNING - appid 429570 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.404+0000] {cleaning.py:219} WARNING - appid 552620 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.405+0000] {cleaning.py:219} WARNING - appid 1279610 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.405+0000] {cleaning.py:219} WARNING - appid 353380 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.406+0000] {cleaning.py:219} WARNING - appid 597760 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.407+0000] {cleaning.py:219} WARNING - appid 486310 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.407+0000] {cleaning.py:219} WARNING - appid 108200 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.408+0000] {cleaning.py:219} WARNING - appid 1787090 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.409+0000] {cleaning.py:219} WARNING - appid 790820 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.410+0000] {cleaning.py:219} WARNING - appid 1634680 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.410+0000] {cleaning.py:219} WARNING - appid 1486350 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.411+0000] {cleaning.py:219} WARNING - appid 776960 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.411+0000] {cleaning.py:219} WARNING - appid 1921980 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.412+0000] {cleaning.py:219} WARNING - appid 287370 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.413+0000] {cleaning.py:219} WARNING - appid 517710 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.414+0000] {cleaning.py:219} WARNING - appid 1112400 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.414+0000] {cleaning.py:219} WARNING - appid 1364390 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.415+0000] {cleaning.py:219} WARNING - appid 282900 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.416+0000] {cleaning.py:219} WARNING - appid 690530 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.417+0000] {cleaning.py:219} WARNING - appid 824270 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.417+0000] {cleaning.py:219} WARNING - appid 1504570 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.418+0000] {cleaning.py:219} WARNING - appid 872670 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.419+0000] {cleaning.py:219} WARNING - appid 675260 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.419+0000] {cleaning.py:219} WARNING - appid 295790 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.420+0000] {cleaning.py:219} WARNING - appid 1880330 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.421+0000] {cleaning.py:219} WARNING - appid 1036890 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.421+0000] {cleaning.py:219} WARNING - appid 1110390 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.423+0000] {cleaning.py:219} WARNING - appid 1477830 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.423+0000] {cleaning.py:219} WARNING - appid 40960 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.424+0000] {cleaning.py:219} WARNING - appid 266310 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.424+0000] {cleaning.py:219} WARNING - appid 410710 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.425+0000] {cleaning.py:219} WARNING - appid 1204050 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.426+0000] {cleaning.py:219} WARNING - appid 837380 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.427+0000] {cleaning.py:219} WARNING - appid 1170760 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.427+0000] {cleaning.py:219} WARNING - appid 384490 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.429+0000] {cleaning.py:219} WARNING - appid 253940 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.429+0000] {cleaning.py:219} WARNING - appid 249990 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.431+0000] {cleaning.py:219} WARNING - appid 1203630 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.432+0000] {cleaning.py:219} WARNING - appid 2210 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.432+0000] {cleaning.py:219} WARNING - appid 695920 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.434+0000] {cleaning.py:219} WARNING - appid 1732190 tidak ditemukan di game_lookup, dilewati
+[2026-09-10T07:01:50.435+0000] {cleaning.py:226} INFO - build_silver_dataset selesai: 2886 record berhasil diproses, 114 dilewati
+[2026-09-10T07:01:50.435+0000] {steam_analytics.py:215} INFO - Cleaning menghasilkan 2886 record.
+[2026-09-10T07:01:50.667+0000] {postgres.py:364} INFO - Berhasil insert/update 2886 baris ke fact_game_snapshot (0 dilewati karena tidak ada game_key)
+[2026-09-10T07:01:50.669+0000] {steam_analytics.py:221} INFO - Silver DWH berhasil diproses. Fact records: 2886
+[2026-09-10T07:01:50.674+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-10T07:01:50.675+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-10T07:01:50.687+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=process_facts_and_silver_layer, run_id=scheduled__2026-09-09T02:00:00+00:00, execution_date=20260909T020000, start_date=20260910T070149, end_date=20260910T070150
+[2026-09-10T07:01:50.748+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-10T07:01:50.771+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-10T07:01:50.773+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

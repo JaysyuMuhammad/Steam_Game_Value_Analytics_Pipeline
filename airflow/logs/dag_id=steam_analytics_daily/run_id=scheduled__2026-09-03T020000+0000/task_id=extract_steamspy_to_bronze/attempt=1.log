@@ -1,0 +1,138 @@
+[2026-09-04T07:33:52.973+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T07:33:53.003+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:33:53.010+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:33:53.010+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T07:33:53.021+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T07:33:53.027+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=236) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T07:33:53.027+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp2bnzfb9n']
+[2026-09-04T07:33:53.028+0000] {standard_task_runner.py:64} INFO - Started process 237 to run task
+[2026-09-04T07:33:53.028+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T07:33:53.066+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 3762623e3598
+[2026-09-04T07:33:53.143+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T07:33:53.144+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T07:33:53.145+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T07:33:53.656+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T07:33:53.657+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T07:33:53.693+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T07:33:53.693+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T07:33:53.694+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T07:33:53.695+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T07:33:53.704+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T073353, end_date=20260904T073353
+[2026-09-04T07:33:53.723+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T07:33:53.745+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T07:33:53.747+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-04T07:47:24.810+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T07:47:24.841+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:47:24.847+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:47:24.848+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T07:47:24.858+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T07:47:24.865+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=201) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T07:47:24.866+0000] {standard_task_runner.py:64} INFO - Started process 202 to run task
+[2026-09-04T07:47:24.865+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp1uo8_te2']
+[2026-09-04T07:47:24.866+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T07:47:24.907+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 735f0d5a1378
+[2026-09-04T07:47:24.984+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T07:47:24.985+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T07:47:24.985+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T07:47:25.375+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T07:47:25.375+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T07:47:25.401+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T07:47:25.402+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T07:47:25.403+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T07:47:25.404+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T07:47:25.414+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T074724, end_date=20260904T074725
+[2026-09-04T07:47:25.440+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T07:47:25.471+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T07:47:25.474+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-04T07:57:55.235+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T07:57:55.266+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:57:55.274+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T07:57:55.274+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T07:57:55.285+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T07:57:55.292+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=206) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T07:57:55.291+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpi6fk57z2']
+[2026-09-04T07:57:55.293+0000] {standard_task_runner.py:64} INFO - Started process 207 to run task
+[2026-09-04T07:57:55.293+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T07:57:55.345+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 70e81768a14c
+[2026-09-04T07:57:55.436+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T07:57:55.437+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T07:57:55.438+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T07:57:55.918+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T07:57:55.919+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T07:57:55.957+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T07:57:55.958+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T07:57:55.960+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T07:57:55.961+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T07:57:55.973+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T075755, end_date=20260904T075755
+[2026-09-04T07:57:56.028+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T07:57:56.052+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T07:57:56.055+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-04T08:07:34.610+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T08:07:34.639+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:07:34.646+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:07:34.646+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T08:07:34.657+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T08:07:34.663+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T08:07:34.664+0000] {standard_task_runner.py:64} INFO - Started process 197 to run task
+[2026-09-04T08:07:34.662+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp9kguwfcs']
+[2026-09-04T08:07:34.664+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T08:07:34.703+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 77b425fa5bb6
+[2026-09-04T08:07:34.778+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T08:07:34.780+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T08:07:34.781+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T08:07:35.057+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T08:07:35.058+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T08:07:35.091+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T08:07:35.091+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T08:07:35.092+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T08:07:35.093+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T08:07:35.102+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T080734, end_date=20260904T080735
+[2026-09-04T08:07:35.158+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T08:07:35.181+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T08:07:35.183+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-04T08:13:37.052+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T08:13:37.082+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:13:37.089+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:13:37.090+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T08:13:37.101+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T08:13:37.108+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=206) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T08:13:37.109+0000] {standard_task_runner.py:64} INFO - Started process 207 to run task
+[2026-09-04T08:13:37.107+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp0av7vtdv']
+[2026-09-04T08:13:37.109+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T08:13:37.150+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 56029f1728e2
+[2026-09-04T08:13:37.231+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T08:13:37.232+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T08:13:37.233+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T08:13:37.589+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T08:13:37.589+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T08:13:37.617+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T08:13:37.618+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T08:13:37.619+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T08:13:37.619+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T08:13:37.628+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T081337, end_date=20260904T081337
+[2026-09-04T08:13:37.643+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T08:13:37.665+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T08:13:37.667+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-09-04T08:40:21.494+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-04T08:40:21.524+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:40:21.531+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [queued]>
+[2026-09-04T08:40:21.531+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-04T08:40:21.542+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_steamspy_to_bronze> on 2026-09-03 02:00:00+00:00
+[2026-09-04T08:40:21.548+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=255) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T08:40:21.549+0000] {standard_task_runner.py:64} INFO - Started process 256 to run task
+[2026-09-04T08:40:21.548+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_steamspy_to_bronze', 'scheduled__2026-09-03T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpm54icy0a']
+[2026-09-04T08:40:21.550+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract_steamspy_to_bronze
+[2026-09-04T08:40:21.590+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_steamspy_to_bronze scheduled__2026-09-03T02:00:00+00:00 [running]> on host 69bb381b179f
+[2026-09-04T08:40:21.671+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_steamspy_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-03T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-03T02:00:00+00:00'
+[2026-09-04T08:40:21.672+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-04T08:40:21.673+0000] {steam_analytics.py:44} INFO - Memulai extract SteamSpy untuk 2026-09-03
+[2026-09-04T08:40:22.178+0000] {steamspy.py:64} INFO - Page 0: 1000 game ditarik (top 0-999 by owners)
+[2026-09-04T08:40:22.178+0000] {steamspy.py:71} INFO - Total game ditarik via pagination: 1000
+[2026-09-04T08:40:22.202+0000] {minio_client.py:74} INFO - Berhasil menulis 1000 record ke s3://steam-analytics/bronze/steamspy/2026-09-03/data.json
+[2026-09-04T08:40:22.202+0000] {steam_analytics.py:83} INFO - Bronze SteamSpy 2026-09-03 berhasil disimpan. Total game: 1000
+[2026-09-04T08:40:22.203+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-04T08:40:22.204+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-04T08:40:22.213+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_steamspy_to_bronze, run_id=scheduled__2026-09-03T02:00:00+00:00, execution_date=20260903T020000, start_date=20260904T084021, end_date=20260904T084022
+[2026-09-04T08:40:22.244+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-04T08:40:22.266+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T08:40:22.268+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

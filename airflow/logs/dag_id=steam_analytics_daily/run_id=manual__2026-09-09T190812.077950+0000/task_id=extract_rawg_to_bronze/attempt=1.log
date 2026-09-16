@@ -1,0 +1,29 @@
+[2026-09-09T19:10:16.588+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-09T19:10:16.626+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze manual__2026-09-09T19:08:12.077950+00:00 [queued]>
+[2026-09-09T19:10:16.633+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze manual__2026-09-09T19:08:12.077950+00:00 [queued]>
+[2026-09-09T19:10:16.633+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-09T19:10:16.644+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_rawg_to_bronze> on 2026-09-09 19:08:12.077950+00:00
+[2026-09-09T19:10:16.652+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1153) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-09T19:10:16.652+0000] {standard_task_runner.py:64} INFO - Started process 1154 to run task
+[2026-09-09T19:10:16.651+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_rawg_to_bronze', 'manual__2026-09-09T19:08:12.077950+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpw_6ype_6']
+[2026-09-09T19:10:16.653+0000] {standard_task_runner.py:91} INFO - Job 8: Subtask extract_rawg_to_bronze
+[2026-09-09T19:10:16.694+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_rawg_to_bronze manual__2026-09-09T19:08:12.077950+00:00 [running]> on host fcb1bc3b8094
+[2026-09-09T19:10:16.777+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_rawg_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-09T19:08:12.077950+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-09T19:08:12.077950+00:00'
+[2026-09-09T19:10:16.779+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-09T19:10:16.779+0000] {steam_analytics.py:115} INFO - Memulai extract RAWG untuk 2026-09-09
+[2026-09-09T19:10:16.912+0000] {minio_client.py:87} INFO - Berhasil membaca 3000 record dari s3://steam-analytics/bronze/steamspy/2026-09-09/data.json
+[2026-09-09T19:10:16.913+0000] {steam_analytics.py:118} INFO - SteamSpy Bronze berisi 3000 game.
+[2026-09-09T19:10:16.926+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-09-09T19:10:16.927+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-09T19:10:16.935+0000] {postgres.py:62} INFO - Ditemukan 3000 appid yang sudah punya mapping
+[2026-09-09T19:10:16.936+0000] {steam_analytics.py:130} INFO - Existing mapping ditemukan: 3000 AppID.
+[2026-09-09T19:10:16.937+0000] {matching.py:69} INFO - Deteksi game baru: 0 dari 3000 game hari ini belum punya mapping
+[2026-09-09T19:10:16.937+0000] {steam_analytics.py:133} INFO - Game belum memiliki mapping: 0
+[2026-09-09T19:10:16.938+0000] {steam_analytics.py:136} INFO - Tidak ada game baru. Membuat Bronze RAWG kosong.
+[2026-09-09T19:10:16.952+0000] {minio_client.py:70} INFO - Berhasil menulis 0 record ke s3://steam-analytics/bronze/rawg/2026-09-09/data.json
+[2026-09-09T19:10:16.953+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-09T19:10:16.954+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-09T19:10:16.963+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_rawg_to_bronze, run_id=manual__2026-09-09T19:08:12.077950+00:00, execution_date=20260909T190812, start_date=20260909T191016, end_date=20260909T191016
+[2026-09-09T19:10:16.986+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-09T19:10:17.011+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-09T19:10:17.013+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

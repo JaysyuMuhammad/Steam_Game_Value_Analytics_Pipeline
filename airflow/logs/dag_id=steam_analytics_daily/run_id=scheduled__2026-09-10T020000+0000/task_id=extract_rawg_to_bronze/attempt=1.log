@@ -1,0 +1,22 @@
+[2026-09-11T07:46:59.118+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-11T07:46:59.159+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-09-10T02:00:00+00:00 [queued]>
+[2026-09-11T07:46:59.169+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-09-10T02:00:00+00:00 [queued]>
+[2026-09-11T07:46:59.170+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-09-11T07:46:59.184+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_rawg_to_bronze> on 2026-09-10 02:00:00+00:00
+[2026-09-11T07:46:59.193+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-11T07:46:59.192+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_rawg_to_bronze', 'scheduled__2026-09-10T02:00:00+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmpdr7da94c']
+[2026-09-11T07:46:59.194+0000] {standard_task_runner.py:64} INFO - Started process 193 to run task
+[2026-09-11T07:46:59.194+0000] {standard_task_runner.py:91} INFO - Job 51: Subtask extract_rawg_to_bronze
+[2026-09-11T07:46:59.257+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-09-10T02:00:00+00:00 [running]> on host fcb1bc3b8094
+[2026-09-11T07:46:59.376+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_rawg_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-09-10T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-10T02:00:00+00:00'
+[2026-09-11T07:46:59.377+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-11T07:46:59.379+0000] {steam_analytics.py:115} INFO - Memulai extract RAWG untuk 2026-09-10
+[2026-09-11T07:46:59.585+0000] {minio_client.py:87} INFO - Berhasil membaca 3000 record dari s3://steam-analytics/bronze/steamspy/2026-09-10/data.json
+[2026-09-11T07:46:59.586+0000] {steam_analytics.py:118} INFO - SteamSpy Bronze berisi 3000 game.
+[2026-09-11T07:46:59.604+0000] {steam_analytics.py:121} INFO - Bronze RAWG 2026-09-10 sudah ada. RAWG API call dilewati.
+[2026-09-11T07:46:59.606+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-09-11T07:46:59.608+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-11T07:46:59.623+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=steam_analytics_daily, task_id=extract_rawg_to_bronze, run_id=scheduled__2026-09-10T02:00:00+00:00, execution_date=20260910T020000, start_date=20260911T074659, end_date=20260911T074659
+[2026-09-11T07:46:59.650+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-09-11T07:46:59.687+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-11T07:46:59.690+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

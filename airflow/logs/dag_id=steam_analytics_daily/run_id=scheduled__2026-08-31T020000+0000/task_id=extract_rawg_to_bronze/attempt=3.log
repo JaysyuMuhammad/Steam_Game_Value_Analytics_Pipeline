@@ -1,0 +1,824 @@
+[2026-09-01T17:19:25.451+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-01T17:19:25.484+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-08-31T02:00:00+00:00 [queued]>
+[2026-09-01T17:19:25.492+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-08-31T02:00:00+00:00 [queued]>
+[2026-09-01T17:19:25.493+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2026-09-01T17:19:25.503+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_rawg_to_bronze> on 2026-08-31 02:00:00+00:00
+[2026-09-01T17:19:25.510+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=281) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-01T17:19:25.509+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'steam_analytics_daily', 'extract_rawg_to_bronze', 'scheduled__2026-08-31T02:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/steam_analytics.py', '--cfg-path', '/tmp/tmp2ri5uce9']
+[2026-09-01T17:19:25.511+0000] {standard_task_runner.py:64} INFO - Started process 282 to run task
+[2026-09-01T17:19:25.511+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask extract_rawg_to_bronze
+[2026-09-01T17:19:25.554+0000] {task_command.py:426} INFO - Running <TaskInstance: steam_analytics_daily.extract_rawg_to_bronze scheduled__2026-08-31T02:00:00+00:00 [running]> on host 82cdda78b0c7
+[2026-09-01T17:19:25.641+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='steam_analytics_daily' AIRFLOW_CTX_TASK_ID='extract_rawg_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-08-31T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-08-31T02:00:00+00:00'
+[2026-09-01T17:19:25.643+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-01T17:19:25.767+0000] {minio_client.py:91} INFO - Berhasil membaca 1000 record dari s3://steam-analytics/bronze/steamspy/2026-08-31/data.json
+[2026-09-01T17:19:25.776+0000] {base.py:84} INFO - Using connection ID 'postgres_***' for task execution.
+[2026-09-01T17:19:25.782+0000] {postgres.py:51} INFO - Ditemukan 0 appid yang sudah punya mapping
+[2026-09-01T17:19:25.782+0000] {matching.py:47} INFO - Deteksi game baru: 1000 dari 1000 game hari ini belum punya mapping
+[2026-09-01T17:19:27.529+0000] {rawg.py:108} INFO - [1/1000] RAWG fetch unmapped: Counter-Strike: Global Offensive (AppID: 730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:28.848+0000] {rawg.py:108} INFO - [2/1000] RAWG fetch unmapped: Apex Legends (AppID: 1172470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:29.768+0000] {rawg.py:108} INFO - [3/1000] RAWG fetch unmapped: PUBG: BATTLEGROUNDS (AppID: 578080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:30.536+0000] {rawg.py:108} INFO - [4/1000] RAWG fetch unmapped: Palworld (AppID: 1623730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:31.405+0000] {rawg.py:108} INFO - [5/1000] RAWG fetch unmapped: Team Fortress 2 (AppID: 440) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:32.439+0000] {rawg.py:108} INFO - [6/1000] RAWG fetch unmapped: Call of Duty: Modern Warfare II (AppID: 1938090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:33.629+0000] {rawg.py:108} INFO - [7/1000] RAWG fetch unmapped: New World: Aeternum (AppID: 1063730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:34.305+0000] {rawg.py:108} INFO - [8/1000] RAWG fetch unmapped: Black Myth: Wukong (AppID: 2358720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:35.484+0000] {rawg.py:108} INFO - [9/1000] RAWG fetch unmapped: Grand Theft Auto V Legacy (AppID: 271590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:36.103+0000] {rawg.py:108} INFO - [10/1000] RAWG fetch unmapped: Left 4 Dead 2 (AppID: 550) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:37.241+0000] {rawg.py:108} INFO - [11/1000] RAWG fetch unmapped: Unturned (AppID: 304930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:37.845+0000] {rawg.py:108} INFO - [12/1000] RAWG fetch unmapped: Lost Ark (AppID: 1599340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:38.714+0000] {rawg.py:108} INFO - [13/1000] RAWG fetch unmapped: War Thunder (AppID: 236390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:39.559+0000] {rawg.py:108} INFO - [14/1000] RAWG fetch unmapped: Monster Hunter Wilds (AppID: 2246340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:40.252+0000] {rawg.py:108} INFO - [15/1000] RAWG fetch unmapped: HELLDIVERS 2 (AppID: 553850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:40.971+0000] {rawg.py:108} INFO - [16/1000] RAWG fetch unmapped: Warframe (AppID: 230410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:41.673+0000] {rawg.py:108} INFO - [17/1000] RAWG fetch unmapped: ELDEN RING (AppID: 1245620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:42.288+0000] {rawg.py:108} INFO - [18/1000] RAWG fetch unmapped: Terraria (AppID: 105600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:42.988+0000] {rawg.py:108} INFO - [19/1000] RAWG fetch unmapped: Path of Exile 2 (AppID: 2694490) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:44.061+0000] {rawg.py:108} INFO - [20/1000] RAWG fetch unmapped: Wallpaper Engine (AppID: 431960) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:44.972+0000] {rawg.py:108} INFO - [21/1000] RAWG fetch unmapped: Baldur's Gate 3 (AppID: 1086940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:45.652+0000] {rawg.py:108} INFO - [22/1000] RAWG fetch unmapped: Brawlhalla (AppID: 291550) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:46.309+0000] {rawg.py:108} INFO - [23/1000] RAWG fetch unmapped: Garry's Mod (AppID: 4000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:47.033+0000] {rawg.py:108} INFO - [24/1000] RAWG fetch unmapped: Destiny 2 (AppID: 1085660) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:47.956+0000] {rawg.py:108} INFO - [25/1000] RAWG fetch unmapped: Tom Clancy's Rainbow Six Siege (AppID: 359550) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:48.584+0000] {rawg.py:108} INFO - [26/1000] RAWG fetch unmapped: Rust (AppID: 252490) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:51.573+0000] {rawg.py:108} INFO - [27/1000] RAWG fetch unmapped: World of Warships (AppID: 552990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:52.371+0000] {rawg.py:108} INFO - [28/1000] RAWG fetch unmapped: ARK: Survival Evolved (AppID: 346110) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:53.110+0000] {rawg.py:108} INFO - [29/1000] RAWG fetch unmapped: Stardew Valley (AppID: 413150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:53.976+0000] {rawg.py:108} INFO - [30/1000] RAWG fetch unmapped: The Forest (AppID: 242760) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:55.050+0000] {rawg.py:108} INFO - [31/1000] RAWG fetch unmapped: War Robots: Frontiers (AppID: 1491000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:55.691+0000] {rawg.py:108} INFO - [32/1000] RAWG fetch unmapped: Path of Exile (AppID: 238960) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:56.390+0000] {rawg.py:108} INFO - [33/1000] RAWG fetch unmapped: PAYDAY 2 (AppID: 218620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:57.156+0000] {rawg.py:108} INFO - [34/1000] RAWG fetch unmapped: Warface: Clutch (AppID: 291480) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:57.947+0000] {rawg.py:108} INFO - [35/1000] RAWG fetch unmapped: Grand Theft Auto IV: Complete Edition (AppID: 901583) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:58.624+0000] {rawg.py:108} INFO - [36/1000] RAWG fetch unmapped: Last Epoch (AppID: 899770) -> Mendapatkan 5 kandidat
+[2026-09-01T17:19:59.375+0000] {rawg.py:108} INFO - [37/1000] RAWG fetch unmapped: Half-Life 2: Lost Coast (AppID: 340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:00.064+0000] {rawg.py:108} INFO - [38/1000] RAWG fetch unmapped: Cyberpunk 2077 (AppID: 1091500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:01.482+0000] {rawg.py:108} INFO - [39/1000] RAWG fetch unmapped: Dead by Daylight (AppID: 381210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:02.229+0000] {rawg.py:108} INFO - [40/1000] RAWG fetch unmapped: Hogwarts Legacy (AppID: 990080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:03.088+0000] {rawg.py:108} INFO - [41/1000] RAWG fetch unmapped: VRChat (AppID: 438100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:04.318+0000] {rawg.py:108} INFO - [42/1000] RAWG fetch unmapped: The Witcher 3: Wild Hunt - Complete Edition (AppID: 292030) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:04.962+0000] {rawg.py:108} INFO - [43/1000] RAWG fetch unmapped: Among Us (AppID: 945360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:05.813+0000] {rawg.py:108} INFO - [44/1000] RAWG fetch unmapped: Fall Guys: Ultimate Knockout (AppID: 1097150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:06.634+0000] {rawg.py:108} INFO - [45/1000] RAWG fetch unmapped: Borderlands 2 (AppID: 49520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:07.439+0000] {rawg.py:108} INFO - [46/1000] RAWG fetch unmapped: Euro Truck Simulator 2 (AppID: 227300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:08.100+0000] {rawg.py:108} INFO - [47/1000] RAWG fetch unmapped: Valheim (AppID: 892970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:08.783+0000] {rawg.py:108} INFO - [48/1000] RAWG fetch unmapped: Phasmophobia (AppID: 739630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:09.463+0000] {rawg.py:108} INFO - [49/1000] RAWG fetch unmapped: Paladins (AppID: 444090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:10.544+0000] {rawg.py:108} INFO - [50/1000] RAWG fetch unmapped: NARAKA: BLADEPOINT (AppID: 1203220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:11.396+0000] {rawg.py:108} INFO - [51/1000] RAWG fetch unmapped: Half-Life 2: Deathmatch (AppID: 320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:12.210+0000] {rawg.py:108} INFO - [52/1000] RAWG fetch unmapped: Half-Life (AppID: 70) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:13.069+0000] {rawg.py:108} INFO - [53/1000] RAWG fetch unmapped: Monster Hunter: World (AppID: 582010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:14.075+0000] {rawg.py:108} INFO - [54/1000] RAWG fetch unmapped: Heroes & Generals (AppID: 227940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:14.967+0000] {rawg.py:108} INFO - [55/1000] RAWG fetch unmapped: Rocket League (AppID: 252950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:15.709+0000] {rawg.py:108} INFO - [56/1000] RAWG fetch unmapped: Project Zomboid (AppID: 108600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:16.696+0000] {rawg.py:108} INFO - [57/1000] RAWG fetch unmapped: Lethal Company (AppID: 1966720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:17.438+0000] {rawg.py:108} INFO - [58/1000] RAWG fetch unmapped: Red Dead Redemption 2 (AppID: 1174180) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:18.160+0000] {rawg.py:108} INFO - [59/1000] RAWG fetch unmapped: Battlefield 2042 (AppID: 1517290) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:18.983+0000] {rawg.py:108} INFO - [60/1000] RAWG fetch unmapped: Halo Infinite (AppID: 1240440) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:19.667+0000] {rawg.py:108} INFO - [61/1000] RAWG fetch unmapped: Raft (AppID: 648800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:20.399+0000] {rawg.py:108} INFO - [62/1000] RAWG fetch unmapped: SMITE (AppID: 386360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:21.175+0000] {rawg.py:108} INFO - [63/1000] RAWG fetch unmapped: World of Tanks Blitz (AppID: 444200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:22.025+0000] {rawg.py:108} INFO - [64/1000] RAWG fetch unmapped: Counter-Strike (AppID: 10) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:23.036+0000] {rawg.py:108} INFO - [65/1000] RAWG fetch unmapped: Counter-Strike: Source (AppID: 240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:23.911+0000] {rawg.py:108} INFO - [66/1000] RAWG fetch unmapped: Schedule I (AppID: 3164500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:24.638+0000] {rawg.py:108} INFO - [67/1000] RAWG fetch unmapped: Ring of Elysium (AppID: 755790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:25.281+0000] {rawg.py:108} INFO - [68/1000] RAWG fetch unmapped: Portal (AppID: 400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:26.017+0000] {rawg.py:108} INFO - [69/1000] RAWG fetch unmapped: The Sims 4 (AppID: 1222670) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:26.642+0000] {rawg.py:108} INFO - [70/1000] RAWG fetch unmapped: Black Squad (AppID: 550650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:27.389+0000] {rawg.py:108} INFO - [71/1000] RAWG fetch unmapped: Don't Starve Together (AppID: 322330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:28.082+0000] {rawg.py:108} INFO - [72/1000] RAWG fetch unmapped: Dying Light (AppID: 239140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:29.054+0000] {rawg.py:108} INFO - [73/1000] RAWG fetch unmapped: Human Fall Flat (AppID: 477160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:29.711+0000] {rawg.py:108} INFO - [74/1000] RAWG fetch unmapped: 7 Days to Die (AppID: 251570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:30.627+0000] {rawg.py:108} INFO - [75/1000] RAWG fetch unmapped: Counter-Strike: Condition Zero (AppID: 100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:31.432+0000] {rawg.py:108} INFO - [76/1000] RAWG fetch unmapped: eFootball (AppID: 1665460) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:32.298+0000] {rawg.py:108} INFO - [77/1000] RAWG fetch unmapped: Street Warriors Online (AppID: 417910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:33.075+0000] {rawg.py:108} INFO - [78/1000] RAWG fetch unmapped: Z1 Battle Royale (AppID: 433850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:33.796+0000] {rawg.py:108} INFO - [79/1000] RAWG fetch unmapped: Hunt: Showdown 1896 (AppID: 594650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:34.695+0000] {rawg.py:108} INFO - [80/1000] RAWG fetch unmapped: Sekiro: Shadows Die Twice - GOTY Edition (AppID: 814380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:35.529+0000] {rawg.py:108} INFO - [81/1000] RAWG fetch unmapped: CyberCorp (AppID: 1116170) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:36.297+0000] {rawg.py:108} INFO - [82/1000] RAWG fetch unmapped: Half-Life 2 (AppID: 220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:37.014+0000] {rawg.py:108} INFO - [83/1000] RAWG fetch unmapped: Arma 3 (AppID: 107410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:37.940+0000] {rawg.py:108} INFO - [84/1000] RAWG fetch unmapped: Sons Of The Forest (AppID: 1326470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:38.774+0000] {rawg.py:108} INFO - [85/1000] RAWG fetch unmapped: Grim Dawn (AppID: 219990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:39.491+0000] {rawg.py:108} INFO - [86/1000] RAWG fetch unmapped: Cities: Skylines (AppID: 255710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:40.265+0000] {rawg.py:108} INFO - [87/1000] RAWG fetch unmapped: Mount & Blade II: Bannerlord (AppID: 261550) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:41.012+0000] {rawg.py:108} INFO - [88/1000] RAWG fetch unmapped: Sid Meier's Civilization V (AppID: 8930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:41.640+0000] {rawg.py:108} INFO - [89/1000] RAWG fetch unmapped: Trove (AppID: 304050) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:42.390+0000] {rawg.py:108} INFO - [90/1000] RAWG fetch unmapped: Sid Meier’s Civilization VI (AppID: 289070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:43.278+0000] {rawg.py:108} INFO - [91/1000] RAWG fetch unmapped: Fallout 4 (AppID: 377160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:45.267+0000] {rawg.py:108} INFO - [92/1000] RAWG fetch unmapped: Life is Strange 2 (AppID: 532210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:46.180+0000] {rawg.py:108} INFO - [93/1000] RAWG fetch unmapped: Warhammer 40,000: Rogue Trader (AppID: 2186680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:46.930+0000] {rawg.py:108} INFO - [94/1000] RAWG fetch unmapped: Battlefield V (AppID: 1238810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:47.592+0000] {rawg.py:108} INFO - [95/1000] RAWG fetch unmapped: R.E.P.O. (AppID: 3241660) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:48.260+0000] {rawg.py:108} INFO - [96/1000] RAWG fetch unmapped: DayZ (AppID: 221100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:48.995+0000] {rawg.py:108} INFO - [97/1000] RAWG fetch unmapped: Satisfactory (AppID: 526870) -> Mendapatkan 2 kandidat
+[2026-09-01T17:20:49.831+0000] {rawg.py:108} INFO - [98/1000] RAWG fetch unmapped: NBA 2K20 (AppID: 1089350) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:53.354+0000] {rawg.py:108} INFO - [99/1000] RAWG fetch unmapped: Risk of Rain 2 (AppID: 632360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:54.052+0000] {rawg.py:108} INFO - [100/1000] RAWG fetch unmapped: EA SPORTS FIFA 23 (AppID: 1811260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:54.797+0000] {rawg.py:108} INFO - [101/1000] RAWG fetch unmapped: Castle Crashers (AppID: 204360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:55.963+0000] {rawg.py:108} INFO - [102/1000] RAWG fetch unmapped: PlanetSide 2 (AppID: 218230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:56.792+0000] {rawg.py:108} INFO - [103/1000] RAWG fetch unmapped: The Elder Scrolls V: Skyrim (AppID: 72850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:57.532+0000] {rawg.py:108} INFO - [104/1000] RAWG fetch unmapped: Hearts of Iron IV (AppID: 394360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:58.619+0000] {rawg.py:108} INFO - [105/1000] RAWG fetch unmapped: The Elder Scrolls V: Skyrim Special Edition (AppID: 489830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:20:59.558+0000] {rawg.py:108} INFO - [106/1000] RAWG fetch unmapped: Geometry Dash (AppID: 322170) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:00.320+0000] {rawg.py:108} INFO - [107/1000] RAWG fetch unmapped: MONSTER HUNTER RISE (AppID: 1446780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:01.031+0000] {rawg.py:108} INFO - [108/1000] RAWG fetch unmapped: No More Room in Hell (AppID: 224260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:01.954+0000] {rawg.py:108} INFO - [109/1000] RAWG fetch unmapped: Tomb Raider Game of the Year (AppID: 203160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:02.613+0000] {rawg.py:108} INFO - [110/1000] RAWG fetch unmapped: No Man's Sky (AppID: 275850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:03.453+0000] {rawg.py:108} INFO - [111/1000] RAWG fetch unmapped: Hollow Knight (AppID: 367520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:04.162+0000] {rawg.py:108} INFO - [112/1000] RAWG fetch unmapped: Robocraft (AppID: 301520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:04.846+0000] {rawg.py:108} INFO - [113/1000] RAWG fetch unmapped: War Robots (AppID: 767560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:05.557+0000] {rawg.py:108} INFO - [114/1000] RAWG fetch unmapped: Resident Evil 4 (AppID: 2050650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:06.397+0000] {rawg.py:108} INFO - [115/1000] RAWG fetch unmapped: Deceit (AppID: 466240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:07.157+0000] {rawg.py:108} INFO - [116/1000] RAWG fetch unmapped: BeamNG.drive (AppID: 284160) -> Mendapatkan 1 kandidat
+[2026-09-01T17:21:07.915+0000] {rawg.py:108} INFO - [117/1000] RAWG fetch unmapped: A Story About My Uncle (AppID: 278360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:08.592+0000] {rawg.py:108} INFO - [118/1000] RAWG fetch unmapped: Subnautica (AppID: 264710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:09.444+0000] {rawg.py:108} INFO - [119/1000] RAWG fetch unmapped: Counter-Strike: Condition Zero (AppID: 80) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:10.096+0000] {rawg.py:108} INFO - [120/1000] RAWG fetch unmapped: Kathy Rain (AppID: 370910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:10.854+0000] {rawg.py:108} INFO - [121/1000] RAWG fetch unmapped: Deathmatch Classic (AppID: 40) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:11.586+0000] {rawg.py:108} INFO - [122/1000] RAWG fetch unmapped: Guacamelee! Super Turbo Championship Edition (AppID: 275390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:12.337+0000] {rawg.py:108} INFO - [123/1000] RAWG fetch unmapped: Content Warning (AppID: 2881650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:13.170+0000] {rawg.py:108} INFO - [124/1000] RAWG fetch unmapped: Call of Duty: Black Ops III (AppID: 311210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:13.808+0000] {rawg.py:108} INFO - [125/1000] RAWG fetch unmapped: Dirty Bomb (AppID: 333930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:14.682+0000] {rawg.py:108} INFO - [126/1000] RAWG fetch unmapped: Sea of Thieves: 2026 Edition (AppID: 1172620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:15.370+0000] {rawg.py:108} INFO - [127/1000] RAWG fetch unmapped: Fallout: New Vegas (AppID: 22380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:16.528+0000] {rawg.py:108} INFO - [128/1000] RAWG fetch unmapped: The Binding of Isaac: Rebirth (AppID: 250900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:20.269+0000] {rawg.py:108} INFO - [129/1000] RAWG fetch unmapped: SCP: Secret Laboratory (AppID: 700330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:21.174+0000] {rawg.py:108} INFO - [130/1000] RAWG fetch unmapped: Call of Duty: Modern Warfare 2 (2009) (AppID: 10180) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:21.972+0000] {rawg.py:108} INFO - [131/1000] RAWG fetch unmapped: Black Desert (AppID: 582660) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:22.569+0000] {rawg.py:108} INFO - [132/1000] RAWG fetch unmapped: ULTRAKILL (AppID: 1229490) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:23.946+0000] {rawg.py:108} INFO - [133/1000] RAWG fetch unmapped: Dota Underlords (AppID: 1046930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:24.581+0000] {rawg.py:108} INFO - [134/1000] RAWG fetch unmapped: It Takes Two (AppID: 1426210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:25.254+0000] {rawg.py:108} INFO - [135/1000] RAWG fetch unmapped: EA SPORTS FC 24 (AppID: 2195250) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:26.070+0000] {rawg.py:108} INFO - [136/1000] RAWG fetch unmapped: Warhammer 40,000: Space Marine 2 (AppID: 2183900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:26.784+0000] {rawg.py:108} INFO - [137/1000] RAWG fetch unmapped: Resident Evil 2 (AppID: 883710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:27.568+0000] {rawg.py:108} INFO - [138/1000] RAWG fetch unmapped: Chivalry: Medieval Warfare (AppID: 219640) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:28.361+0000] {rawg.py:108} INFO - [139/1000] RAWG fetch unmapped: The Elder Scrolls Online (AppID: 306130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:29.043+0000] {rawg.py:108} INFO - [140/1000] RAWG fetch unmapped: Assetto Corsa (AppID: 244210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:29.701+0000] {rawg.py:108} INFO - [141/1000] RAWG fetch unmapped: XCOM 2 (AppID: 268500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:30.414+0000] {rawg.py:108} INFO - [142/1000] RAWG fetch unmapped: Vampire Survivors (AppID: 1794680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:31.072+0000] {rawg.py:108} INFO - [143/1000] RAWG fetch unmapped: MultiVersus (AppID: 1818750) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:31.872+0000] {rawg.py:108} INFO - [144/1000] RAWG fetch unmapped: Assassin’s Creed IV Black Flag (AppID: 242050) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:32.807+0000] {rawg.py:108} INFO - [145/1000] RAWG fetch unmapped: Day of Defeat (AppID: 30) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:33.538+0000] {rawg.py:108} INFO - [146/1000] RAWG fetch unmapped: Europa Universalis IV (AppID: 236850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:34.486+0000] {rawg.py:108} INFO - [147/1000] RAWG fetch unmapped: Clicker Heroes (AppID: 363970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:35.287+0000] {rawg.py:108} INFO - [148/1000] RAWG fetch unmapped: theHunter Classic (AppID: 253710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:35.914+0000] {rawg.py:108} INFO - [149/1000] RAWG fetch unmapped: DOOM (AppID: 379720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:36.709+0000] {rawg.py:108} INFO - [150/1000] RAWG fetch unmapped: Evolve Stage 2 (AppID: 273350) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:37.412+0000] {rawg.py:108} INFO - [151/1000] RAWG fetch unmapped: Crab Game (AppID: 1782210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:38.088+0000] {rawg.py:108} INFO - [152/1000] RAWG fetch unmapped: KurtzPel (AppID: 844870) -> Mendapatkan 2 kandidat
+[2026-09-01T17:21:38.704+0000] {rawg.py:108} INFO - [153/1000] RAWG fetch unmapped: Devil May Cry 5 (AppID: 601150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:40.242+0000] {rawg.py:108} INFO - [154/1000] RAWG fetch unmapped: STAR WARS: The Old Republic (AppID: 1286830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:43.098+0000] {rawg.py:108} INFO - [155/1000] RAWG fetch unmapped: Blender (AppID: 365670) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:43.898+0000] {rawg.py:108} INFO - [156/1000] RAWG fetch unmapped: Life is Strange - Episode 1 (AppID: 319630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:44.574+0000] {rawg.py:108} INFO - [157/1000] RAWG fetch unmapped: Forza Horizon 4 (AppID: 1293830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:45.228+0000] {rawg.py:108} INFO - [158/1000] RAWG fetch unmapped: Hades (AppID: 1145360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:46.180+0000] {rawg.py:108} INFO - [159/1000] RAWG fetch unmapped: BattleBit Remastered (AppID: 671860) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:46.894+0000] {rawg.py:108} INFO - [160/1000] RAWG fetch unmapped: Factorio (AppID: 427520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:47.737+0000] {rawg.py:108} INFO - [161/1000] RAWG fetch unmapped: Age of Empires II (Retired) (AppID: 221380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:48.559+0000] {rawg.py:108} INFO - [162/1000] RAWG fetch unmapped: Company of Heroes 2 (AppID: 231430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:49.196+0000] {rawg.py:108} INFO - [163/1000] RAWG fetch unmapped: Realm Royale (AppID: 813820) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:50.143+0000] {rawg.py:108} INFO - [164/1000] RAWG fetch unmapped: Total War: WARHAMMER II (AppID: 594570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:50.774+0000] {rawg.py:108} INFO - [165/1000] RAWG fetch unmapped: Undertale (AppID: 391540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:51.650+0000] {rawg.py:108} INFO - [166/1000] RAWG fetch unmapped: Halo: The Master Chief Collection (AppID: 976730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:52.297+0000] {rawg.py:108} INFO - [167/1000] RAWG fetch unmapped: Slay the Spire (AppID: 646570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:53.056+0000] {rawg.py:108} INFO - [168/1000] RAWG fetch unmapped: Dead Cells (AppID: 588650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:53.789+0000] {rawg.py:108} INFO - [169/1000] RAWG fetch unmapped: Cuphead (AppID: 268910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:54.744+0000] {rawg.py:108} INFO - [170/1000] RAWG fetch unmapped: Z1 Battle Royale: Test Server (AppID: 439700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:55.421+0000] {rawg.py:108} INFO - [171/1000] RAWG fetch unmapped: Left 4 Dead (AppID: 500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:56.281+0000] {rawg.py:108} INFO - [172/1000] RAWG fetch unmapped: People Playground (AppID: 1118200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:57.027+0000] {rawg.py:108} INFO - [173/1000] RAWG fetch unmapped: Portal 2 (AppID: 620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:57.732+0000] {rawg.py:108} INFO - [174/1000] RAWG fetch unmapped: Forza Horizon 5 (AppID: 1551360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:58.456+0000] {rawg.py:108} INFO - [175/1000] RAWG fetch unmapped: Eternal Return (AppID: 1049590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:21:59.329+0000] {rawg.py:108} INFO - [176/1000] RAWG fetch unmapped: Half-Life 2: Episode One (AppID: 380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:00.117+0000] {rawg.py:108} INFO - [177/1000] RAWG fetch unmapped: Half-Life Deathmatch: Source (AppID: 360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:00.762+0000] {rawg.py:108} INFO - [178/1000] RAWG fetch unmapped: Total War: THREE KINGDOMS (AppID: 779340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:01.582+0000] {rawg.py:108} INFO - [179/1000] RAWG fetch unmapped: Prison Architect (AppID: 233450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:02.308+0000] {rawg.py:108} INFO - [180/1000] RAWG fetch unmapped: DOOM Eternal (AppID: 782330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:02.983+0000] {rawg.py:108} INFO - [181/1000] RAWG fetch unmapped: Cry of Fear (AppID: 223710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:03.623+0000] {rawg.py:108} INFO - [182/1000] RAWG fetch unmapped: SCUM (AppID: 513710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:04.527+0000] {rawg.py:108} INFO - [183/1000] RAWG fetch unmapped: Splitgate: Arena Warfare (AppID: 677620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:05.218+0000] {rawg.py:108} INFO - [184/1000] RAWG fetch unmapped: Stumble Guys (AppID: 1677740) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:05.893+0000] {rawg.py:108} INFO - [185/1000] RAWG fetch unmapped: Neverwinter (AppID: 109600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:06.744+0000] {rawg.py:108} INFO - [186/1000] RAWG fetch unmapped: Half-Life 2: Episode Two (AppID: 420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:07.720+0000] {rawg.py:108} INFO - [187/1000] RAWG fetch unmapped: Business Tour - Board Game with Online Multiplayer (AppID: 397900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:08.559+0000] {rawg.py:108} INFO - [188/1000] RAWG fetch unmapped: Doki Doki Literature Club! (AppID: 698780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:11.754+0000] {rawg.py:108} INFO - [189/1000] RAWG fetch unmapped: Divinity: Original Sin 2 - Definitive Edition (AppID: 435150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:12.543+0000] {rawg.py:108} INFO - [190/1000] RAWG fetch unmapped: Football Manager 2020 (AppID: 1100600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:13.273+0000] {rawg.py:108} INFO - [191/1000] RAWG fetch unmapped: V Rising (AppID: 1604030) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:14.103+0000] {rawg.py:108} INFO - [192/1000] RAWG fetch unmapped: Dying Light 2 Stay Human: Reloaded Edition (AppID: 534380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:14.962+0000] {rawg.py:108} INFO - [193/1000] RAWG fetch unmapped: Russian Fishing 4 (AppID: 766570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:16.985+0000] {rawg.py:108} INFO - [194/1000] RAWG fetch unmapped: Deep Rock Galactic (AppID: 548430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:18.245+0000] {rawg.py:108} INFO - [195/1000] RAWG fetch unmapped: RimWorld (AppID: 294100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:19.612+0000] {rawg.py:108} INFO - [196/1000] RAWG fetch unmapped: Counter-Strike Nexon: Studio (AppID: 273110) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:20.322+0000] {rawg.py:108} INFO - [197/1000] RAWG fetch unmapped: The Cycle: Frontier (AppID: 868270) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:21.293+0000] {rawg.py:108} INFO - [198/1000] RAWG fetch unmapped: HITMAN 2 (AppID: 863550) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:21.970+0000] {rawg.py:108} INFO - [199/1000] RAWG fetch unmapped: Titanfall 2 (AppID: 1237970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:22.789+0000] {rawg.py:108} INFO - [200/1000] RAWG fetch unmapped: Infestation: The New Z (AppID: 555570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:23.768+0000] {rawg.py:108} INFO - [201/1000] RAWG fetch unmapped: Call of Duty: Modern Warfare 2 (2009) (AppID: 10190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:24.552+0000] {rawg.py:108} INFO - [202/1000] RAWG fetch unmapped: Little Nightmares (AppID: 424840) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:25.217+0000] {rawg.py:108} INFO - [203/1000] RAWG fetch unmapped: EA SPORTS FC 25 (AppID: 2669320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:26.028+0000] {rawg.py:108} INFO - [204/1000] RAWG fetch unmapped: theHunter: Call of the Wild (AppID: 518790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:26.902+0000] {rawg.py:108} INFO - [205/1000] RAWG fetch unmapped: Tom Clancy’s The Division (AppID: 365590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:27.628+0000] {rawg.py:108} INFO - [206/1000] RAWG fetch unmapped: POSTAL 2 (AppID: 223470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:28.609+0000] {rawg.py:108} INFO - [207/1000] RAWG fetch unmapped: Middle-earth: Shadow of Mordor (AppID: 241930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:29.372+0000] {rawg.py:108} INFO - [208/1000] RAWG fetch unmapped: AdVenture Capitalist (AppID: 346900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:30.084+0000] {rawg.py:108} INFO - [209/1000] RAWG fetch unmapped: Grand Theft Auto V Enhanced (AppID: 3240220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:31.144+0000] {rawg.py:108} INFO - [210/1000] RAWG fetch unmapped: Conan Exiles Enhanced (AppID: 440900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:31.919+0000] {rawg.py:108} INFO - [211/1000] RAWG fetch unmapped: DARK SOULS III (AppID: 374320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:32.780+0000] {rawg.py:108} INFO - [212/1000] RAWG fetch unmapped: DAVE THE DIVER (AppID: 1868140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:33.410+0000] {rawg.py:108} INFO - [213/1000] RAWG fetch unmapped: FOR HONOR (AppID: 304390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:34.130+0000] {rawg.py:108} INFO - [214/1000] RAWG fetch unmapped: Loadout (AppID: 208090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:34.947+0000] {rawg.py:108} INFO - [215/1000] RAWG fetch unmapped: Mount & Blade: Warband (AppID: 48700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:35.764+0000] {rawg.py:108} INFO - [216/1000] RAWG fetch unmapped: Call of Duty 2 (AppID: 2630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:36.590+0000] {rawg.py:108} INFO - [217/1000] RAWG fetch unmapped: Grand Theft Auto IV: The Complete Edition (AppID: 12210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:37.246+0000] {rawg.py:108} INFO - [218/1000] RAWG fetch unmapped: Ready or Not (AppID: 1144200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:37.933+0000] {rawg.py:108} INFO - [219/1000] RAWG fetch unmapped: APB Reloaded (AppID: 113400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:38.606+0000] {rawg.py:108} INFO - [220/1000] RAWG fetch unmapped: Stray (AppID: 1332010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:39.633+0000] {rawg.py:108} INFO - [221/1000] RAWG fetch unmapped: Saints Row IV: Re-Elected (AppID: 206420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:40.491+0000] {rawg.py:108} INFO - [222/1000] RAWG fetch unmapped: Fishing Planet (AppID: 380600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:41.161+0000] {rawg.py:108} INFO - [223/1000] RAWG fetch unmapped: Just Cause 3 (AppID: 225540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:41.949+0000] {rawg.py:108} INFO - [224/1000] RAWG fetch unmapped: Braveland (AppID: 285800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:42.672+0000] {rawg.py:108} INFO - [225/1000] RAWG fetch unmapped: Metro 2033 Redux (AppID: 286690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:43.665+0000] {rawg.py:108} INFO - [226/1000] RAWG fetch unmapped: DCS World Steam Edition (AppID: 223750) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:44.324+0000] {rawg.py:108} INFO - [227/1000] RAWG fetch unmapped: God of War (AppID: 1593500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:44.990+0000] {rawg.py:108} INFO - [228/1000] RAWG fetch unmapped: Crossout (AppID: 386180) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:45.743+0000] {rawg.py:108} INFO - [229/1000] RAWG fetch unmapped: Battlefield 1 (AppID: 1238840) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:46.622+0000] {rawg.py:108} INFO - [230/1000] RAWG fetch unmapped: Assassin's Creed Odyssey (AppID: 812140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:47.327+0000] {rawg.py:108} INFO - [231/1000] RAWG fetch unmapped: Poppy Playtime (AppID: 1721470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:48.091+0000] {rawg.py:108} INFO - [232/1000] RAWG fetch unmapped: Bloons TD 6 (AppID: 960090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:48.793+0000] {rawg.py:108} INFO - [233/1000] RAWG fetch unmapped: Saints Row: The Third (AppID: 55230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:49.595+0000] {rawg.py:108} INFO - [234/1000] RAWG fetch unmapped: Darkest Dungeon (AppID: 262060) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:50.520+0000] {rawg.py:108} INFO - [235/1000] RAWG fetch unmapped: Albion Online (AppID: 761890) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:51.262+0000] {rawg.py:108} INFO - [236/1000] RAWG fetch unmapped: Split Fiction (AppID: 2001120) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:51.982+0000] {rawg.py:108} INFO - [237/1000] RAWG fetch unmapped: Stellaris (AppID: 281990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:52.652+0000] {rawg.py:108} INFO - [238/1000] RAWG fetch unmapped: Divide By Sheep (AppID: 252130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:53.320+0000] {rawg.py:108} INFO - [239/1000] RAWG fetch unmapped: Starbound (AppID: 211820) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:53.973+0000] {rawg.py:108} INFO - [240/1000] RAWG fetch unmapped: Just Cause 2 (AppID: 8190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:54.792+0000] {rawg.py:108} INFO - [241/1000] RAWG fetch unmapped: STAR WARS Battlefront II (Classic, 2005) (AppID: 6060) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:55.639+0000] {rawg.py:108} INFO - [242/1000] RAWG fetch unmapped: Totally Accurate Battle Simulator (AppID: 508440) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:56.741+0000] {rawg.py:108} INFO - [243/1000] RAWG fetch unmapped: Call of Duty: Modern Warfare 3 (2011) (AppID: 115300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:57.403+0000] {rawg.py:108} INFO - [244/1000] RAWG fetch unmapped: Magicka (AppID: 42910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:22:58.289+0000] {rawg.py:108} INFO - [245/1000] RAWG fetch unmapped: FINAL FANTASY XIV Online (AppID: 39210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:02.589+0000] {rawg.py:108} INFO - [246/1000] RAWG fetch unmapped: Need for Speed Heat (AppID: 1222680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:03.833+0000] {rawg.py:108} INFO - [247/1000] RAWG fetch unmapped: The Descendant (AppID: 351940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:04.538+0000] {rawg.py:108} INFO - [248/1000] RAWG fetch unmapped: Killing Floor (AppID: 1250) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:05.662+0000] {rawg.py:108} INFO - [249/1000] RAWG fetch unmapped: The Elder Scrolls IV: Oblivion Remastered (AppID: 2623190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:06.500+0000] {rawg.py:108} INFO - [250/1000] RAWG fetch unmapped: Frostpunk (AppID: 323190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:07.220+0000] {rawg.py:108} INFO - [251/1000] RAWG fetch unmapped: Starfield (AppID: 1716740) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:08.278+0000] {rawg.py:108} INFO - [252/1000] RAWG fetch unmapped: Age of Empires II: Definitive Edition (AppID: 813780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:09.537+0000] {rawg.py:108} INFO - [253/1000] RAWG fetch unmapped: Alien Swarm (AppID: 630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:14.740+0000] {rawg.py:108} INFO - [254/1000] RAWG fetch unmapped: Amnesia: The Dark Descent (AppID: 57300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:22.445+0000] {rawg.py:108} INFO - [255/1000] RAWG fetch unmapped: DISTRAINT: Deluxe Edition (AppID: 395170) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:24.780+0000] {rawg.py:108} INFO - [256/1000] RAWG fetch unmapped: The Witcher 2: Assassins of Kings Enhanced Edition (AppID: 20920) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:25.571+0000] {rawg.py:108} INFO - [257/1000] RAWG fetch unmapped: FTL: Faster Than Light (AppID: 212680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:26.233+0000] {rawg.py:108} INFO - [258/1000] RAWG fetch unmapped: Battlerite (AppID: 504370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:27.141+0000] {rawg.py:108} INFO - [259/1000] RAWG fetch unmapped: Tabletop Simulator (AppID: 286160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:32.463+0000] {rawg.py:108} INFO - [260/1000] RAWG fetch unmapped: Enter the Gungeon (AppID: 311690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:33.122+0000] {rawg.py:108} INFO - [261/1000] RAWG fetch unmapped: Survarium (AppID: 355840) -> Mendapatkan 1 kandidat
+[2026-09-01T17:23:33.819+0000] {rawg.py:108} INFO - [262/1000] RAWG fetch unmapped: Hades II (AppID: 1145350) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:34.502+0000] {rawg.py:108} INFO - [263/1000] RAWG fetch unmapped: Crosshair X (AppID: 1366800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:35.268+0000] {rawg.py:108} INFO - [264/1000] RAWG fetch unmapped: Resident Evil Village (AppID: 1196590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:36.212+0000] {rawg.py:108} INFO - [265/1000] RAWG fetch unmapped: House Flipper (AppID: 613100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:37.676+0000] {rawg.py:108} INFO - [266/1000] RAWG fetch unmapped: STAR WARS Jedi: Fallen Order (AppID: 1172380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:38.464+0000] {rawg.py:108} INFO - [267/1000] RAWG fetch unmapped: Call of Duty: Black Ops II (AppID: 202970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:39.265+0000] {rawg.py:108} INFO - [268/1000] RAWG fetch unmapped: INSIDE (AppID: 304430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:40.112+0000] {rawg.py:108} INFO - [269/1000] RAWG fetch unmapped: Plants vs. Zombies GOTY Edition (AppID: 3590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:44.547+0000] {rawg.py:108} INFO - [270/1000] RAWG fetch unmapped: Party Animals (AppID: 1260320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:45.396+0000] {rawg.py:108} INFO - [271/1000] RAWG fetch unmapped: Arma 2: Operation Arrowhead (AppID: 33930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:46.734+0000] {rawg.py:108} INFO - [272/1000] RAWG fetch unmapped: The Lord of the Rings Online (AppID: 212500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:47.625+0000] {rawg.py:108} INFO - [273/1000] RAWG fetch unmapped: Oxygen Not Included (AppID: 457140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:48.633+0000] {rawg.py:108} INFO - [274/1000] RAWG fetch unmapped: Beat Saber (AppID: 620980) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:49.342+0000] {rawg.py:108} INFO - [275/1000] RAWG fetch unmapped: Detroit: Become Human (AppID: 1222140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:50.337+0000] {rawg.py:108} INFO - [276/1000] RAWG fetch unmapped: Marvel’s Spider-Man Remastered (AppID: 1817070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:51.012+0000] {rawg.py:108} INFO - [277/1000] RAWG fetch unmapped: Dishonored (AppID: 205100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:51.911+0000] {rawg.py:108} INFO - [278/1000] RAWG fetch unmapped: PAYDAY The Heist (AppID: 24240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:52.702+0000] {rawg.py:108} INFO - [279/1000] RAWG fetch unmapped: FIFA 22 (AppID: 1506830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:53.520+0000] {rawg.py:108} INFO - [280/1000] RAWG fetch unmapped: Ultimate Custom Night (AppID: 871720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:23:54.293+0000] {rawg.py:108} INFO - [281/1000] RAWG fetch unmapped: Grounded (AppID: 962130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:00.411+0000] {rawg.py:108} INFO - [282/1000] RAWG fetch unmapped: Middle-earth: Shadow of War (AppID: 356190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:01.096+0000] {rawg.py:108} INFO - [283/1000] RAWG fetch unmapped: Broforce (AppID: 274190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:01.782+0000] {rawg.py:108} INFO - [284/1000] RAWG fetch unmapped: Mad Max (AppID: 234140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:02.496+0000] {rawg.py:108} INFO - [285/1000] RAWG fetch unmapped: EVE Online (AppID: 8500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:03.258+0000] {rawg.py:108} INFO - [286/1000] RAWG fetch unmapped: Far Cry 5 (AppID: 552520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:03.920+0000] {rawg.py:108} INFO - [287/1000] RAWG fetch unmapped: BioShock (AppID: 7670) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:04.798+0000] {rawg.py:108} INFO - [288/1000] RAWG fetch unmapped: Vampire: The Masquerade - Bloodhunt (AppID: 760160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:05.656+0000] {rawg.py:108} INFO - [289/1000] RAWG fetch unmapped: American Truck Simulator (AppID: 270880) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:06.444+0000] {rawg.py:108} INFO - [290/1000] RAWG fetch unmapped: Enshrouded (AppID: 1203620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:07.139+0000] {rawg.py:108} INFO - [291/1000] RAWG fetch unmapped: Yu-Gi-Oh! Duel Links (AppID: 601510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:08.196+0000] {rawg.py:108} INFO - [292/1000] RAWG fetch unmapped: Borderlands 3 (AppID: 397540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:08.920+0000] {rawg.py:108} INFO - [293/1000] RAWG fetch unmapped: Grand Theft Auto: San Andreas (AppID: 12120) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:09.639+0000] {rawg.py:108} INFO - [294/1000] RAWG fetch unmapped: HITMAN (AppID: 236870) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:10.375+0000] {rawg.py:108} INFO - [295/1000] RAWG fetch unmapped: Stick Fight: The Game (AppID: 674940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:11.033+0000] {rawg.py:108} INFO - [296/1000] RAWG fetch unmapped: CRSED: F.O.A.D. (AppID: 884660) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:11.933+0000] {rawg.py:108} INFO - [297/1000] RAWG fetch unmapped: Kingdom Two Crowns (AppID: 701160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:12.716+0000] {rawg.py:108} INFO - [298/1000] RAWG fetch unmapped: Mirror 2: Project X (AppID: 1832640) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:13.680+0000] {rawg.py:108} INFO - [299/1000] RAWG fetch unmapped: Batman: Arkham Knight (AppID: 208650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:14.292+0000] {rawg.py:108} INFO - [300/1000] RAWG fetch unmapped: LIMBO (AppID: 48000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:14.878+0000] {rawg.py:108} INFO - [301/1000] RAWG fetch unmapped: Balatro (AppID: 2379780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:19.941+0000] {rawg.py:108} INFO - [302/1000] RAWG fetch unmapped: Far Cry 4 (AppID: 298110) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:21.098+0000] {rawg.py:108} INFO - [303/1000] RAWG fetch unmapped: Call of Duty: Black Ops (AppID: 42710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:21.809+0000] {rawg.py:108} INFO - [304/1000] RAWG fetch unmapped: Torchlight II (AppID: 200710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:22.544+0000] {rawg.py:108} INFO - [305/1000] RAWG fetch unmapped: Crusader Kings II (AppID: 203770) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:23.284+0000] {rawg.py:108} INFO - [306/1000] RAWG fetch unmapped: Clair Obscur: Expedition 33 (AppID: 1903340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:24.065+0000] {rawg.py:108} INFO - [307/1000] RAWG fetch unmapped: Space Engineers (AppID: 244850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:26.413+0000] {rawg.py:108} INFO - [308/1000] RAWG fetch unmapped: Dyson Sphere Program (AppID: 1366540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:27.206+0000] {rawg.py:108} INFO - [309/1000] RAWG fetch unmapped: Supermarket Together (AppID: 2709570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:28.256+0000] {rawg.py:108} INFO - [310/1000] RAWG fetch unmapped: Total War: SHOGUN 2 (AppID: 201270) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:28.875+0000] {rawg.py:108} INFO - [311/1000] RAWG fetch unmapped: TEKKEN 7 (AppID: 389730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:29.594+0000] {rawg.py:108} INFO - [312/1000] RAWG fetch unmapped: Call of Duty: World at War (AppID: 10090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:30.795+0000] {rawg.py:108} INFO - [313/1000] RAWG fetch unmapped: Days Gone (AppID: 1259420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:31.771+0000] {rawg.py:108} INFO - [314/1000] RAWG fetch unmapped: Borderlands: The Pre-Sequel (AppID: 261640) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:32.514+0000] {rawg.py:108} INFO - [315/1000] RAWG fetch unmapped: Kerbal Space Program (AppID: 220200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:33.249+0000] {rawg.py:108} INFO - [316/1000] RAWG fetch unmapped: Total War: WARHAMMER III (AppID: 1142710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:34.411+0000] {rawg.py:108} INFO - [317/1000] RAWG fetch unmapped: Fistful of Frags (AppID: 265630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:35.194+0000] {rawg.py:108} INFO - [318/1000] RAWG fetch unmapped: Hotline Miami (AppID: 219150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:36.054+0000] {rawg.py:108} INFO - [319/1000] RAWG fetch unmapped: The Expendabros (AppID: 312990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:36.885+0000] {rawg.py:108} INFO - [320/1000] RAWG fetch unmapped: Rising Storm 2: Vietnam (AppID: 418460) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:37.840+0000] {rawg.py:108} INFO - [321/1000] RAWG fetch unmapped: RaceRoom Racing Experience (AppID: 211500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:38.570+0000] {rawg.py:108} INFO - [322/1000] RAWG fetch unmapped: Last Man Standing (AppID: 506540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:39.724+0000] {rawg.py:108} INFO - [323/1000] RAWG fetch unmapped: The Witcher: Enhanced Edition Director's Cut (AppID: 20900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:40.524+0000] {rawg.py:108} INFO - [324/1000] RAWG fetch unmapped: Warhammer: Vermintide 2 (AppID: 552500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:43.830+0000] {rawg.py:108} INFO - [325/1000] RAWG fetch unmapped: Ori and the Will of the Wisps (AppID: 1057090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:44.673+0000] {rawg.py:108} INFO - [326/1000] RAWG fetch unmapped: Elite Dangerous (AppID: 359320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:48.747+0000] {rawg.py:108} INFO - [327/1000] RAWG fetch unmapped: Total War: ROME II - Emperor Edition (AppID: 214950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:50.301+0000] {rawg.py:108} INFO - [328/1000] RAWG fetch unmapped: Saints Row 2 (AppID: 9480) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:51.312+0000] {rawg.py:108} INFO - [329/1000] RAWG fetch unmapped: Skullgirls 2nd Encore (AppID: 245170) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:52.214+0000] {rawg.py:108} INFO - [330/1000] RAWG fetch unmapped: The Walking Dead (AppID: 207610) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:59.000+0000] {rawg.py:108} INFO - [331/1000] RAWG fetch unmapped: Red Orchestra 2: Heroes of Stalingrad with Rising Storm (AppID: 35450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:24:59.679+0000] {rawg.py:108} INFO - [332/1000] RAWG fetch unmapped: Gang Beasts (AppID: 285900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:00.600+0000] {rawg.py:108} INFO - [333/1000] RAWG fetch unmapped: Killing Floor 2 (AppID: 232090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:01.855+0000] {rawg.py:108} INFO - [334/1000] RAWG fetch unmapped: Call of Duty: Modern Warfare 3 (2011) (AppID: 42680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:02.504+0000] {rawg.py:108} INFO - [335/1000] RAWG fetch unmapped: Century: Age of Ashes (AppID: 918570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:03.397+0000] {rawg.py:108} INFO - [336/1000] RAWG fetch unmapped: Kingdom Come: Deliverance II (AppID: 1771300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:04.494+0000] {rawg.py:108} INFO - [337/1000] RAWG fetch unmapped: Watch_Dogs 2 (AppID: 447040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:05.268+0000] {rawg.py:108} INFO - [338/1000] RAWG fetch unmapped: XCOM: Enemy Unknown (AppID: 200510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:05.939+0000] {rawg.py:108} INFO - [339/1000] RAWG fetch unmapped: ASTRONEER (AppID: 361420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:06.601+0000] {rawg.py:108} INFO - [340/1000] RAWG fetch unmapped: Arma 2 (AppID: 33900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:07.409+0000] {rawg.py:108} INFO - [341/1000] RAWG fetch unmapped: Guns of Icarus Online (AppID: 209080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:08.344+0000] {rawg.py:108} INFO - [342/1000] RAWG fetch unmapped: Mortal Kombat X (AppID: 307780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:09.111+0000] {rawg.py:108} INFO - [343/1000] RAWG fetch unmapped: Transformice (AppID: 335240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:09.922+0000] {rawg.py:108} INFO - [344/1000] RAWG fetch unmapped: Dishonored 2 (AppID: 403640) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:10.754+0000] {rawg.py:108} INFO - [345/1000] RAWG fetch unmapped: Spiral Knights (AppID: 99900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:11.478+0000] {rawg.py:108} INFO - [346/1000] RAWG fetch unmapped: Helltaker (AppID: 1289310) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:14.671+0000] {rawg.py:108} INFO - [347/1000] RAWG fetch unmapped: METAL GEAR SOLID V: THE PHANTOM PAIN (AppID: 287700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:15.539+0000] {rawg.py:108} INFO - [348/1000] RAWG fetch unmapped: Tom Clancy's Ghost Recon Wildlands (AppID: 460930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:16.241+0000] {rawg.py:108} INFO - [349/1000] RAWG fetch unmapped: Don't Starve (AppID: 219740) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:17.005+0000] {rawg.py:108} INFO - [350/1000] RAWG fetch unmapped: The Tiny Bang Story (AppID: 96000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:17.775+0000] {rawg.py:108} INFO - [351/1000] RAWG fetch unmapped: Trine 2: Complete Story (AppID: 35720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:21.626+0000] {rawg.py:108} INFO - [352/1000] RAWG fetch unmapped: Pummel Party (AppID: 880940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:22.346+0000] {rawg.py:108} INFO - [353/1000] RAWG fetch unmapped: Scrap Mechanic (AppID: 387990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:22.980+0000] {rawg.py:108} INFO - [354/1000] RAWG fetch unmapped: Hell Let Loose (AppID: 686810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:23.711+0000] {rawg.py:108} INFO - [355/1000] RAWG fetch unmapped: BioShock Remastered (AppID: 409710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:24.531+0000] {rawg.py:108} INFO - [356/1000] RAWG fetch unmapped: Resident Evil 7 Biohazard (AppID: 418370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:25.514+0000] {rawg.py:108} INFO - [357/1000] RAWG fetch unmapped: Mafia II (Classic) (AppID: 50130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:26.384+0000] {rawg.py:108} INFO - [358/1000] RAWG fetch unmapped: Cookie Clicker (AppID: 1454400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:27.282+0000] {rawg.py:108} INFO - [359/1000] RAWG fetch unmapped: Kingdom Come: Deliverance (AppID: 379430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:28.088+0000] {rawg.py:108} INFO - [360/1000] RAWG fetch unmapped: Hotline Miami 2: Wrong Number (AppID: 274170) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:28.859+0000] {rawg.py:108} INFO - [361/1000] RAWG fetch unmapped: POSTAL (AppID: 232770) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:29.524+0000] {rawg.py:108} INFO - [362/1000] RAWG fetch unmapped: Manor Lords (AppID: 1363080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:30.226+0000] {rawg.py:108} INFO - [363/1000] RAWG fetch unmapped: Minimalism (AppID: 585690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:30.976+0000] {rawg.py:108} INFO - [364/1000] RAWG fetch unmapped: Assassin's Creed Unity (AppID: 289650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:31.792+0000] {rawg.py:108} INFO - [365/1000] RAWG fetch unmapped: Mirror's Edge (AppID: 17410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:32.762+0000] {rawg.py:108} INFO - [366/1000] RAWG fetch unmapped: Company of Heroes - Legacy Edition (AppID: 4560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:33.545+0000] {rawg.py:108} INFO - [367/1000] RAWG fetch unmapped: Gray Zone Warfare (AppID: 2479810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:34.338+0000] {rawg.py:108} INFO - [368/1000] RAWG fetch unmapped: Shadow Warrior (AppID: 233130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:35.229+0000] {rawg.py:108} INFO - [369/1000] RAWG fetch unmapped: Wolfenstein: Youngblood (AppID: 1056960) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:36.324+0000] {rawg.py:108} INFO - [370/1000] RAWG fetch unmapped: Mortal Kombat 11 (AppID: 976310) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:37.082+0000] {rawg.py:108} INFO - [371/1000] RAWG fetch unmapped: Call of Duty: Black Ops II (AppID: 202990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:37.866+0000] {rawg.py:108} INFO - [372/1000] RAWG fetch unmapped: Codename CURE (AppID: 355180) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:38.711+0000] {rawg.py:108} INFO - [373/1000] RAWG fetch unmapped: DRAGON BALL FighterZ (AppID: 678950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:39.509+0000] {rawg.py:108} INFO - [374/1000] RAWG fetch unmapped: Fallout 76 (AppID: 1151340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:40.264+0000] {rawg.py:108} INFO - [375/1000] RAWG fetch unmapped: Block N Load (AppID: 299360) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:41.035+0000] {rawg.py:108} INFO - [376/1000] RAWG fetch unmapped: South Park: The Stick of Truth (AppID: 213670) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:41.874+0000] {rawg.py:108} INFO - [377/1000] RAWG fetch unmapped: World of Guns: Gun Disassembly (AppID: 262410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:42.695+0000] {rawg.py:108} INFO - [378/1000] RAWG fetch unmapped: Defiance (AppID: 224600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:43.560+0000] {rawg.py:108} INFO - [379/1000] RAWG fetch unmapped: Kingdom: Classic (AppID: 368230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:44.180+0000] {rawg.py:108} INFO - [380/1000] RAWG fetch unmapped: Liar's Bar (AppID: 3097560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:47.196+0000] {rawg.py:108} INFO - [381/1000] RAWG fetch unmapped: DARK SOULS II: Scholar of the First Sin (AppID: 335300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:47.858+0000] {rawg.py:108} INFO - [382/1000] RAWG fetch unmapped: Kenshi (AppID: 233860) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:48.666+0000] {rawg.py:108} INFO - [383/1000] RAWG fetch unmapped: Getting Over It with Bennett Foddy (AppID: 240720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:49.506+0000] {rawg.py:108} INFO - [384/1000] RAWG fetch unmapped: Layers of Fear (2016) (AppID: 391720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:50.436+0000] {rawg.py:108} INFO - [385/1000] RAWG fetch unmapped: The Scroll of Taiwu : Beyond The Dome (AppID: 838350) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:51.103+0000] {rawg.py:108} INFO - [386/1000] RAWG fetch unmapped: Outlast (AppID: 238320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:51.867+0000] {rawg.py:108} INFO - [387/1000] RAWG fetch unmapped: This War of Mine (AppID: 282070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:52.552+0000] {rawg.py:108} INFO - [388/1000] RAWG fetch unmapped: Metro Exodus (AppID: 412020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:53.588+0000] {rawg.py:108} INFO - [389/1000] RAWG fetch unmapped: Crusader Kings III (AppID: 1158310) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:54.324+0000] {rawg.py:108} INFO - [390/1000] RAWG fetch unmapped: Chained Together (AppID: 2567870) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:55.046+0000] {rawg.py:108} INFO - [391/1000] RAWG fetch unmapped: Goat Simulator (AppID: 265930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:55.926+0000] {rawg.py:108} INFO - [392/1000] RAWG fetch unmapped: Alien: Isolation (AppID: 214490) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:56.602+0000] {rawg.py:108} INFO - [393/1000] RAWG fetch unmapped: Black Mesa (AppID: 362890) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:57.576+0000] {rawg.py:108} INFO - [394/1000] RAWG fetch unmapped: Friday the 13th: The Game (AppID: 438740) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:58.293+0000] {rawg.py:108} INFO - [395/1000] RAWG fetch unmapped: Remnant: From the Ashes (AppID: 617290) -> Mendapatkan 5 kandidat
+[2026-09-01T17:25:59.779+0000] {rawg.py:108} INFO - [396/1000] RAWG fetch unmapped: Fallout Shelter (AppID: 588430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:00.773+0000] {rawg.py:108} INFO - [397/1000] RAWG fetch unmapped: Escape the Backrooms (AppID: 1943950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:01.664+0000] {rawg.py:108} INFO - [398/1000] RAWG fetch unmapped: Hitman: Absolution (AppID: 203140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:02.485+0000] {rawg.py:108} INFO - [399/1000] RAWG fetch unmapped: Grand Theft Auto III (AppID: 12100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:03.181+0000] {rawg.py:108} INFO - [400/1000] RAWG fetch unmapped: Conqueror's Blade (AppID: 905370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:03.972+0000] {rawg.py:108} INFO - [401/1000] RAWG fetch unmapped: Phantasy Star Online 2 (AppID: 1056640) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:07.230+0000] {rawg.py:108} INFO - [402/1000] RAWG fetch unmapped: Brotato (AppID: 1942280) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:08.175+0000] {rawg.py:108} INFO - [403/1000] RAWG fetch unmapped: BattleBlock Theater (AppID: 238460) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:09.107+0000] {rawg.py:108} INFO - [404/1000] RAWG fetch unmapped: Fallout: A Post Nuclear Role Playing Game (AppID: 38400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:10.374+0000] {rawg.py:108} INFO - [405/1000] RAWG fetch unmapped: Granblue Fantasy: Relink (AppID: 881020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:15.838+0000] {rawg.py:108} INFO - [406/1000] RAWG fetch unmapped: Dungeon Defenders (AppID: 65800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:16.923+0000] {rawg.py:108} INFO - [407/1000] RAWG fetch unmapped: Sins of a Solar Empire: Rebellion (AppID: 204880) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:17.818+0000] {rawg.py:108} INFO - [408/1000] RAWG fetch unmapped: METAL GEAR RISING: REVENGEANCE (AppID: 235460) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:18.698+0000] {rawg.py:108} INFO - [409/1000] RAWG fetch unmapped: Insurgency: Sandstorm (AppID: 581320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:19.517+0000] {rawg.py:108} INFO - [410/1000] RAWG fetch unmapped: Total War: SHOGUN 2 (AppID: 34330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:20.665+0000] {rawg.py:108} INFO - [411/1000] RAWG fetch unmapped: Ori and the Blind Forest: Definitive Edition (AppID: 387290) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:21.370+0000] {rawg.py:108} INFO - [412/1000] RAWG fetch unmapped: Overcooked! 2 (AppID: 728880) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:22.070+0000] {rawg.py:108} INFO - [413/1000] RAWG fetch unmapped: Rise of the Tomb Raider (AppID: 391220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:22.839+0000] {rawg.py:108} INFO - [414/1000] RAWG fetch unmapped: BioShock Infinite (AppID: 8870) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:23.830+0000] {rawg.py:108} INFO - [415/1000] RAWG fetch unmapped: Tree of Savior (English Ver.) (AppID: 372000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:24.770+0000] {rawg.py:108} INFO - [416/1000] RAWG fetch unmapped: Papers, Please (AppID: 239030) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:25.514+0000] {rawg.py:108} INFO - [417/1000] RAWG fetch unmapped: MORDHAU (AppID: 629760) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:26.341+0000] {rawg.py:108} INFO - [418/1000] RAWG fetch unmapped: The Crew 2 (AppID: 646910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:27.590+0000] {rawg.py:108} INFO - [419/1000] RAWG fetch unmapped: Dragon's Dogma: Dark Arisen (AppID: 367500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:28.427+0000] {rawg.py:108} INFO - [420/1000] RAWG fetch unmapped: Far Cry (AppID: 13520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:29.255+0000] {rawg.py:108} INFO - [421/1000] RAWG fetch unmapped: Pacify (AppID: 967050) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:29.991+0000] {rawg.py:108} INFO - [422/1000] RAWG fetch unmapped: ARK: Survival Ascended (AppID: 2399830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:30.937+0000] {rawg.py:108} INFO - [423/1000] RAWG fetch unmapped: Jurassic World Evolution (AppID: 648350) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:31.637+0000] {rawg.py:108} INFO - [424/1000] RAWG fetch unmapped: Rec Room (AppID: 471710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:32.344+0000] {rawg.py:108} INFO - [425/1000] RAWG fetch unmapped: The Day Before (AppID: 1372880) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:33.036+0000] {rawg.py:108} INFO - [426/1000] RAWG fetch unmapped: NieR:Automata (AppID: 524220) -> Mendapatkan 4 kandidat
+[2026-09-01T17:26:33.795+0000] {rawg.py:108} INFO - [427/1000] RAWG fetch unmapped: The Long Dark (AppID: 305620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:34.593+0000] {rawg.py:108} INFO - [428/1000] RAWG fetch unmapped: Titan Quest Anniversary Edition (AppID: 475150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:35.603+0000] {rawg.py:108} INFO - [429/1000] RAWG fetch unmapped: Need For Speed: Hot Pursuit (AppID: 47870) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:37.231+0000] {rawg.py:108} INFO - [430/1000] RAWG fetch unmapped: Soundpad (AppID: 629520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:38.381+0000] {rawg.py:108} INFO - [431/1000] RAWG fetch unmapped: Quake Live (AppID: 282440) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:39.439+0000] {rawg.py:108} INFO - [432/1000] RAWG fetch unmapped: Governor of Poker 3 (AppID: 436150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:40.173+0000] {rawg.py:108} INFO - [433/1000] RAWG fetch unmapped: The Outlast Trials (AppID: 1304930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:40.863+0000] {rawg.py:108} INFO - [434/1000] RAWG fetch unmapped: Metin2 (AppID: 550900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:41.769+0000] {rawg.py:108} INFO - [435/1000] RAWG fetch unmapped: Assassin's Creed 2 (AppID: 33230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:42.447+0000] {rawg.py:108} INFO - [436/1000] RAWG fetch unmapped: Who's Your Daddy?! (AppID: 427730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:43.207+0000] {rawg.py:108} INFO - [437/1000] RAWG fetch unmapped: Resident Evil 6 (AppID: 221040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:43.995+0000] {rawg.py:108} INFO - [438/1000] RAWG fetch unmapped: DEVOUR (AppID: 1274570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:46.039+0000] {rawg.py:108} INFO - [439/1000] RAWG fetch unmapped: A Way Out (AppID: 1222700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:46.914+0000] {rawg.py:108} INFO - [440/1000] RAWG fetch unmapped: 鬼谷八荒 Tale of Immortal (AppID: 1468810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:47.583+0000] {rawg.py:108} INFO - [441/1000] RAWG fetch unmapped: Metro: Last Light Redux (AppID: 287390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:48.363+0000] {rawg.py:108} INFO - [442/1000] RAWG fetch unmapped: DARK SOULS: REMASTERED (AppID: 570940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:49.124+0000] {rawg.py:108} INFO - [443/1000] RAWG fetch unmapped: PAYDAY 3 (AppID: 1272080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:49.863+0000] {rawg.py:108} INFO - [444/1000] RAWG fetch unmapped: Magic Duels (AppID: 316010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:50.619+0000] {rawg.py:108} INFO - [445/1000] RAWG fetch unmapped: Age of Empires III (2007) (AppID: 105450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:51.473+0000] {rawg.py:108} INFO - [446/1000] RAWG fetch unmapped: Teardown (AppID: 1167630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:52.267+0000] {rawg.py:108} INFO - [447/1000] RAWG fetch unmapped: TrackMania Nations Forever (AppID: 11020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:53.042+0000] {rawg.py:108} INFO - [448/1000] RAWG fetch unmapped: Bully: Scholarship Edition (AppID: 12200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:53.729+0000] {rawg.py:108} INFO - [449/1000] RAWG fetch unmapped: Noita (AppID: 881100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:54.565+0000] {rawg.py:108} INFO - [450/1000] RAWG fetch unmapped: Cult of the Lamb (AppID: 1313140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:55.588+0000] {rawg.py:108} INFO - [451/1000] RAWG fetch unmapped: Ori and the Blind Forest (AppID: 261570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:56.400+0000] {rawg.py:108} INFO - [452/1000] RAWG fetch unmapped: Warhammer 40,000: Darktide (AppID: 1361210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:57.364+0000] {rawg.py:108} INFO - [453/1000] RAWG fetch unmapped: The Stanley Parable (AppID: 221910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:58.109+0000] {rawg.py:108} INFO - [454/1000] RAWG fetch unmapped: Sniper Elite 3 (AppID: 238090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:26:59.190+0000] {rawg.py:108} INFO - [455/1000] RAWG fetch unmapped: GunZ 2: The Second Duel (AppID: 242720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:00.258+0000] {rawg.py:108} INFO - [456/1000] RAWG fetch unmapped: Microsoft Flight Simulator (2020) 40th Anniversary Edition (AppID: 1250410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:01.219+0000] {rawg.py:108} INFO - [457/1000] RAWG fetch unmapped: They Are Billions (AppID: 644930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:02.026+0000] {rawg.py:108} INFO - [458/1000] RAWG fetch unmapped: The Escapists 2 (AppID: 641990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:02.922+0000] {rawg.py:108} INFO - [459/1000] RAWG fetch unmapped: Bless Unleashed (AppID: 1254120) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:03.780+0000] {rawg.py:108} INFO - [460/1000] RAWG fetch unmapped: Insurgency (AppID: 222880) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:04.545+0000] {rawg.py:108} INFO - [461/1000] RAWG fetch unmapped: Orcs Must Die! 2 (AppID: 201790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:05.657+0000] {rawg.py:108} INFO - [462/1000] RAWG fetch unmapped: Football Manager 2022 (AppID: 1569040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:06.534+0000] {rawg.py:108} INFO - [463/1000] RAWG fetch unmapped: America's Army: Proving Grounds (AppID: 203290) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:07.747+0000] {rawg.py:108} INFO - [464/1000] RAWG fetch unmapped: Supermarket Simulator (AppID: 2670630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:08.575+0000] {rawg.py:108} INFO - [465/1000] RAWG fetch unmapped: F1 2015 (AppID: 286570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:09.477+0000] {rawg.py:108} INFO - [466/1000] RAWG fetch unmapped: Farming Simulator 19 (AppID: 787860) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:11.987+0000] {rawg.py:108} INFO - [467/1000] RAWG fetch unmapped: Northgard: Definitive Edition (AppID: 466560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:12.810+0000] {rawg.py:108} INFO - [468/1000] RAWG fetch unmapped: SpeedRunners (AppID: 207140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:13.545+0000] {rawg.py:108} INFO - [469/1000] RAWG fetch unmapped: Inscryption (AppID: 1092790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:14.343+0000] {rawg.py:108} INFO - [470/1000] RAWG fetch unmapped: Golf With Your Friends (AppID: 431240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:15.048+0000] {rawg.py:108} INFO - [471/1000] RAWG fetch unmapped: Toribash (AppID: 248570) -> Mendapatkan 3 kandidat
+[2026-09-01T17:27:16.204+0000] {rawg.py:108} INFO - [472/1000] RAWG fetch unmapped: Bastion (AppID: 107100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:19.913+0000] {rawg.py:108} INFO - [473/1000] RAWG fetch unmapped: Batman: Arkham Origins (AppID: 209000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:20.891+0000] {rawg.py:108} INFO - [474/1000] RAWG fetch unmapped: Battlefield: Bad Company 2 (AppID: 24960) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:22.586+0000] {rawg.py:108} INFO - [475/1000] RAWG fetch unmapped: Subnautica: Below Zero (AppID: 848450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:23.817+0000] {rawg.py:108} INFO - [476/1000] RAWG fetch unmapped: S.K.I.L.L. - Special Force 2 (Shooter) (AppID: 286940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:24.461+0000] {rawg.py:108} INFO - [477/1000] RAWG fetch unmapped: Tales of ARISE (AppID: 740130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:25.105+0000] {rawg.py:108} INFO - [478/1000] RAWG fetch unmapped: SPORE (AppID: 17390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:25.765+0000] {rawg.py:108} INFO - [479/1000] RAWG fetch unmapped: Argo (AppID: 530700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:26.939+0000] {rawg.py:108} INFO - [480/1000] RAWG fetch unmapped: ELDEN RING NIGHTREIGN (AppID: 2622380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:27.859+0000] {rawg.py:108} INFO - [481/1000] RAWG fetch unmapped: Far Cry 3 (AppID: 220240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:28.642+0000] {rawg.py:108} INFO - [482/1000] RAWG fetch unmapped: Gunfire Reborn (AppID: 1217060) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:29.376+0000] {rawg.py:108} INFO - [483/1000] RAWG fetch unmapped: Farming Simulator 22 (AppID: 1248130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:30.140+0000] {rawg.py:108} INFO - [484/1000] RAWG fetch unmapped: Party Jousting (AppID: 437900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:31.326+0000] {rawg.py:108} INFO - [485/1000] RAWG fetch unmapped: CarX Drift Racing Online (AppID: 635260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:32.053+0000] {rawg.py:108} INFO - [486/1000] RAWG fetch unmapped: Just Cause 2: Multiplayer Mod (AppID: 259080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:32.875+0000] {rawg.py:108} INFO - [487/1000] RAWG fetch unmapped: Hellblade: Senua's Sacrifice (AppID: 414340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:33.784+0000] {rawg.py:108} INFO - [488/1000] RAWG fetch unmapped: Call of Duty: Black Ops (AppID: 42700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:34.473+0000] {rawg.py:108} INFO - [489/1000] RAWG fetch unmapped: Alan Wake (AppID: 108710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:35.416+0000] {rawg.py:108} INFO - [490/1000] RAWG fetch unmapped: Homefront (AppID: 55100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:36.081+0000] {rawg.py:108} INFO - [491/1000] RAWG fetch unmapped: 封灵档案 (AppID: 1520470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:37.047+0000] {rawg.py:108} INFO - [492/1000] RAWG fetch unmapped: Mirror (AppID: 644560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:38.211+0000] {rawg.py:108} INFO - [493/1000] RAWG fetch unmapped: Football Manager 2021 (AppID: 1263850) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:39.318+0000] {rawg.py:108} INFO - [494/1000] RAWG fetch unmapped: ARK: Survival Of The Fittest (AppID: 407530) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:39.925+0000] {rawg.py:108} INFO - [495/1000] RAWG fetch unmapped: Muse Dash (AppID: 774171) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:41.039+0000] {rawg.py:108} INFO - [496/1000] RAWG fetch unmapped: The I of the Dragon (AppID: 279720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:42.066+0000] {rawg.py:108} INFO - [497/1000] RAWG fetch unmapped: Wolfenstein: The New Order (AppID: 201810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:44.663+0000] {rawg.py:108} INFO - [498/1000] RAWG fetch unmapped: Five Nights at Freddy's (AppID: 319510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:45.681+0000] {rawg.py:108} INFO - [499/1000] RAWG fetch unmapped: ARMORED CORE VI FIRES OF RUBICON (AppID: 1888160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:46.276+0000] {rawg.py:108} INFO - [500/1000] RAWG fetch unmapped: World War 3 (AppID: 674020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:46.933+0000] {rawg.py:108} INFO - [501/1000] RAWG fetch unmapped: Street Fighter V (AppID: 310950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:47.676+0000] {rawg.py:108} INFO - [502/1000] RAWG fetch unmapped: Resident Evil 3 (AppID: 952060) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:48.525+0000] {rawg.py:108} INFO - [503/1000] RAWG fetch unmapped: Cities: Skylines II (AppID: 949230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:49.630+0000] {rawg.py:108} INFO - [504/1000] RAWG fetch unmapped: Age of Empires IV: Anniversary Edition (AppID: 1466860) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:52.857+0000] {rawg.py:108} INFO - [505/1000] RAWG fetch unmapped: Football Manager 2023 (AppID: 1904540) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:53.880+0000] {rawg.py:108} INFO - [506/1000] RAWG fetch unmapped: Darksiders II Deathinitive Edition (AppID: 388410) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:54.891+0000] {rawg.py:108} INFO - [507/1000] RAWG fetch unmapped: KARDS - The WWII Card Game (AppID: 544810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:55.772+0000] {rawg.py:108} INFO - [508/1000] RAWG fetch unmapped: Quake Champions (AppID: 611500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:56.580+0000] {rawg.py:108} INFO - [509/1000] RAWG fetch unmapped: Half-Life: Opposing Force (AppID: 50) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:57.308+0000] {rawg.py:108} INFO - [510/1000] RAWG fetch unmapped: Krunker (AppID: 1408720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:58.084+0000] {rawg.py:108} INFO - [511/1000] RAWG fetch unmapped: DiRT Rally (AppID: 310560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:27:59.319+0000] {rawg.py:108} INFO - [512/1000] RAWG fetch unmapped: Dragon Age: The Veilguard (AppID: 1845910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:00.239+0000] {rawg.py:108} INFO - [513/1000] RAWG fetch unmapped: Resident Evil 4 (2005) (AppID: 254700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:00.944+0000] {rawg.py:108} INFO - [514/1000] RAWG fetch unmapped: Sniper Elite 5 (AppID: 1029690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:01.775+0000] {rawg.py:108} INFO - [515/1000] RAWG fetch unmapped: Grand Theft Auto: Episodes from Liberty City (AppID: 12220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:02.466+0000] {rawg.py:108} INFO - [516/1000] RAWG fetch unmapped: Green Hell (AppID: 815370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:03.294+0000] {rawg.py:108} INFO - [517/1000] RAWG fetch unmapped: Back to Bed (AppID: 308040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:03.896+0000] {rawg.py:108} INFO - [518/1000] RAWG fetch unmapped: UNO (AppID: 470220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:04.670+0000] {rawg.py:108} INFO - [519/1000] RAWG fetch unmapped: BLOCKADE 3D (AppID: 302830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:05.498+0000] {rawg.py:108} INFO - [520/1000] RAWG fetch unmapped: Banished (AppID: 242920) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:06.283+0000] {rawg.py:108} INFO - [521/1000] RAWG fetch unmapped: Dungeon Defenders II (AppID: 236110) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:07.077+0000] {rawg.py:108} INFO - [522/1000] RAWG fetch unmapped: Firewatch (AppID: 383870) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:07.950+0000] {rawg.py:108} INFO - [523/1000] RAWG fetch unmapped: STAR WARS Battlefront II (AppID: 1237950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:08.600+0000] {rawg.py:108} INFO - [524/1000] RAWG fetch unmapped: Spellbreak (AppID: 1399780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:09.484+0000] {rawg.py:108} INFO - [525/1000] RAWG fetch unmapped: Sniper Elite 4 (AppID: 312660) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:11.309+0000] {rawg.py:108} INFO - [526/1000] RAWG fetch unmapped: ACE COMBAT 7: SKIES UNKNOWN (AppID: 502500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:12.230+0000] {rawg.py:108} INFO - [527/1000] RAWG fetch unmapped: Disco Elysium - The Final Cut (AppID: 632470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:13.969+0000] {rawg.py:108} INFO - [528/1000] RAWG fetch unmapped: Batman: Arkham City - Game of the Year Edition (AppID: 200260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:14.722+0000] {rawg.py:108} INFO - [529/1000] RAWG fetch unmapped: Squad (AppID: 393380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:15.386+0000] {rawg.py:108} INFO - [530/1000] RAWG fetch unmapped: Super Meat Boy (AppID: 40800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:16.444+0000] {rawg.py:108} INFO - [531/1000] RAWG fetch unmapped: Dead Bits (AppID: 303390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:17.826+0000] {rawg.py:108} INFO - [532/1000] RAWG fetch unmapped: Half-Life: Source (AppID: 280) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:18.835+0000] {rawg.py:108} INFO - [533/1000] RAWG fetch unmapped: Ironsight (AppID: 783770) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:19.724+0000] {rawg.py:108} INFO - [534/1000] RAWG fetch unmapped: Star Conflict (AppID: 212070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:20.382+0000] {rawg.py:108} INFO - [535/1000] RAWG fetch unmapped: L.A. Noire (AppID: 110800) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:21.483+0000] {rawg.py:108} INFO - [536/1000] RAWG fetch unmapped: Serious Sam 3: BFE (AppID: 41070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:22.174+0000] {rawg.py:108} INFO - [537/1000] RAWG fetch unmapped: Spec Ops: The Line (AppID: 50300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:22.891+0000] {rawg.py:108} INFO - [538/1000] RAWG fetch unmapped: Guild Wars 2 (AppID: 1284210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:23.653+0000] {rawg.py:108} INFO - [539/1000] RAWG fetch unmapped: Nioh: Complete Edition (AppID: 485510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:24.363+0000] {rawg.py:108} INFO - [540/1000] RAWG fetch unmapped: Trine Enchanted Edition (AppID: 35700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:25.241+0000] {rawg.py:108} INFO - [541/1000] RAWG fetch unmapped: Sanctum 2 (AppID: 210770) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:26.245+0000] {rawg.py:108} INFO - [542/1000] RAWG fetch unmapped: SOMA (AppID: 282140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:27.487+0000] {rawg.py:108} INFO - [543/1000] RAWG fetch unmapped: State of Decay 2: Juggernaut Edition (AppID: 495420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:28.427+0000] {rawg.py:108} INFO - [544/1000] RAWG fetch unmapped: Jotun: Valhalla Edition (AppID: 323580) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:29.436+0000] {rawg.py:108} INFO - [545/1000] RAWG fetch unmapped: Brutal Legend (AppID: 225260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:30.517+0000] {rawg.py:108} INFO - [546/1000] RAWG fetch unmapped: Buckshot Roulette (AppID: 2835570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:31.393+0000] {rawg.py:108} INFO - [547/1000] RAWG fetch unmapped: Surviving Mars (AppID: 464920) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:32.344+0000] {rawg.py:108} INFO - [548/1000] RAWG fetch unmapped: Star Trek Online (AppID: 9900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:33.852+0000] {rawg.py:108} INFO - [549/1000] RAWG fetch unmapped: Call of Duty 4: Modern Warfare (2007) (AppID: 7940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:35.010+0000] {rawg.py:108} INFO - [550/1000] RAWG fetch unmapped: Planet Coaster (AppID: 493340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:35.696+0000] {rawg.py:108} INFO - [551/1000] RAWG fetch unmapped: Kholat (AppID: 343710) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:37.178+0000] {rawg.py:108} INFO - [552/1000] RAWG fetch unmapped: Celeste (AppID: 504230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:38.236+0000] {rawg.py:108} INFO - [553/1000] RAWG fetch unmapped: The Red Solstice (AppID: 265590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:39.179+0000] {rawg.py:108} INFO - [554/1000] RAWG fetch unmapped: HELLDIVERS Dive Harder Edition (AppID: 394510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:40.113+0000] {rawg.py:108} INFO - [555/1000] RAWG fetch unmapped: RISK: Global Domination (AppID: 1128810) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:40.927+0000] {rawg.py:108} INFO - [556/1000] RAWG fetch unmapped: Total War: ATTILA (AppID: 325610) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:42.104+0000] {rawg.py:108} INFO - [557/1000] RAWG fetch unmapped: S.T.A.L.K.E.R. 2: Heart of Chornobyl (AppID: 1643320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:43.148+0000] {rawg.py:108} INFO - [558/1000] RAWG fetch unmapped: Call of Juarez: Gunslinger (AppID: 204450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:43.868+0000] {rawg.py:108} INFO - [559/1000] RAWG fetch unmapped: Sniper Elite V2 (AppID: 63380) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:44.593+0000] {rawg.py:108} INFO - [560/1000] RAWG fetch unmapped: Aura Kingdom (AppID: 268420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:45.655+0000] {rawg.py:108} INFO - [561/1000] RAWG fetch unmapped: Football Manager 2017 (AppID: 482730) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:46.601+0000] {rawg.py:108} INFO - [562/1000] RAWG fetch unmapped: Heaven Forest NIGHTS (AppID: 360970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:47.318+0000] {rawg.py:108} INFO - [563/1000] RAWG fetch unmapped: Fallout 3: Game of the Year Edition (AppID: 22370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:48.089+0000] {rawg.py:108} INFO - [564/1000] RAWG fetch unmapped: NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 (AppID: 349040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:48.817+0000] {rawg.py:108} INFO - [565/1000] RAWG fetch unmapped: Totally Accurate Battlegrounds (AppID: 823130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:50.179+0000] {rawg.py:108} INFO - [566/1000] RAWG fetch unmapped: Max Payne 3 (AppID: 204100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:51.182+0000] {rawg.py:108} INFO - [567/1000] RAWG fetch unmapped: Pathfinder: Wrath of the Righteous - Enhanced Edition (AppID: 1184370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:52.591+0000] {rawg.py:108} INFO - [568/1000] RAWG fetch unmapped: Pathfinder: Kingmaker — Enhanced Plus Edition (AppID: 640820) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:53.346+0000] {rawg.py:108} INFO - [569/1000] RAWG fetch unmapped: The Sims 3 (AppID: 47890) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:55.047+0000] {rawg.py:108} INFO - [570/1000] RAWG fetch unmapped: FINAL FANTASY XV WINDOWS EDITION (AppID: 637650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:55.708+0000] {rawg.py:108} INFO - [571/1000] RAWG fetch unmapped: Planet Zoo (AppID: 703080) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:56.837+0000] {rawg.py:108} INFO - [572/1000] RAWG fetch unmapped: Batman: Arkham Asylum Game of the Year Edition (AppID: 35140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:57.700+0000] {rawg.py:108} INFO - [573/1000] RAWG fetch unmapped: Katana ZERO (AppID: 460950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:58.536+0000] {rawg.py:108} INFO - [574/1000] RAWG fetch unmapped: Darksiders (AppID: 50620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:28:59.562+0000] {rawg.py:108} INFO - [575/1000] RAWG fetch unmapped: Deus Ex: Mankind Divided (AppID: 337000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:00.256+0000] {rawg.py:108} INFO - [576/1000] RAWG fetch unmapped: Slime Rancher (AppID: 433340) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:01.087+0000] {rawg.py:108} INFO - [577/1000] RAWG fetch unmapped: Deus Ex: Human Revolution - Director's Cut (AppID: 238010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:02.038+0000] {rawg.py:108} INFO - [578/1000] RAWG fetch unmapped: For The King (AppID: 527230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:04.046+0000] {rawg.py:108} INFO - [579/1000] RAWG fetch unmapped: RIFT (AppID: 39120) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:05.443+0000] {rawg.py:108} INFO - [580/1000] RAWG fetch unmapped: Sleeping Dogs: Definitive Edition (AppID: 307690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:06.431+0000] {rawg.py:108} INFO - [581/1000] RAWG fetch unmapped: Age of Mythology: Extended Edition (AppID: 266840) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:07.604+0000] {rawg.py:108} INFO - [582/1000] RAWG fetch unmapped: Dragon's Dogma 2 (AppID: 2054970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:08.868+0000] {rawg.py:108} INFO - [583/1000] RAWG fetch unmapped: Car Mechanic Simulator 2018 (AppID: 645630) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:11.520+0000] {rawg.py:108} INFO - [584/1000] RAWG fetch unmapped: Day of Defeat: Source (AppID: 300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:12.459+0000] {rawg.py:108} INFO - [585/1000] RAWG fetch unmapped: DRAGON BALL: Sparking! ZERO (AppID: 1790600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:13.266+0000] {rawg.py:108} INFO - [586/1000] RAWG fetch unmapped: Marvel's Midnight Suns (AppID: 368260) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:14.215+0000] {rawg.py:108} INFO - [587/1000] RAWG fetch unmapped: Mitos.is: The Game (AppID: 389570) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:15.243+0000] {rawg.py:108} INFO - [588/1000] RAWG fetch unmapped: Operation: Harsh Doorstop (AppID: 736590) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:16.055+0000] {rawg.py:108} INFO - [589/1000] RAWG fetch unmapped: Dome Keeper (AppID: 1637320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:16.839+0000] {rawg.py:108} INFO - [590/1000] RAWG fetch unmapped: BioShock 2 Remastered (AppID: 409720) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:17.578+0000] {rawg.py:108} INFO - [591/1000] RAWG fetch unmapped: Dwarf Fortress (AppID: 975370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:18.694+0000] {rawg.py:108} INFO - [592/1000] RAWG fetch unmapped: Warhammer 40,000: Dawn of War II - Anniversary Edition (Classic) (AppID: 15620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:20.210+0000] {rawg.py:108} INFO - [593/1000] RAWG fetch unmapped: No Rest for the Wicked (AppID: 1371980) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:20.948+0000] {rawg.py:108} INFO - [594/1000] RAWG fetch unmapped: Lossless Scaling (AppID: 993090) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:21.765+0000] {rawg.py:108} INFO - [595/1000] RAWG fetch unmapped: Heaven Forest - VR MMO (AppID: 476480) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:22.696+0000] {rawg.py:108} INFO - [596/1000] RAWG fetch unmapped: The Bureau: XCOM Declassified (AppID: 65930) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:23.775+0000] {rawg.py:108} INFO - [597/1000] RAWG fetch unmapped: Black Myth: Wukong Benchmark Tool (AppID: 3132990) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:24.974+0000] {rawg.py:108} INFO - [598/1000] RAWG fetch unmapped: Monster Hunter Stories 2: Wings of Ruin (AppID: 1277400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:25.796+0000] {rawg.py:108} INFO - [599/1000] RAWG fetch unmapped: Ghost of Tsushima DIRECTOR'S CUT (AppID: 2215430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:26.508+0000] {rawg.py:108} INFO - [600/1000] RAWG fetch unmapped: Barotrauma (AppID: 602960) -> Mendapatkan 3 kandidat
+[2026-09-01T17:29:27.303+0000] {rawg.py:108} INFO - [601/1000] RAWG fetch unmapped: Moonlighter (AppID: 606150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:28.129+0000] {rawg.py:108} INFO - [602/1000] RAWG fetch unmapped: MechWarrior Online Solaris 7 (AppID: 342200) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:28.975+0000] {rawg.py:108} INFO - [603/1000] RAWG fetch unmapped: Chivalry 2 (AppID: 1824220) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:32.626+0000] {rawg.py:108} INFO - [604/1000] RAWG fetch unmapped: Warhammer 40,000: Space Marine - Anniversary Edition (AppID: 55150) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:33.391+0000] {rawg.py:108} INFO - [605/1000] RAWG fetch unmapped: Borderlands Game of the Year (AppID: 8980) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:34.713+0000] {rawg.py:108} INFO - [606/1000] RAWG fetch unmapped: The Elder Scrolls IV: Oblivion Game of the Year Edition Deluxe (2009) (AppID: 900883) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:40.134+0000] {rawg.py:108} INFO - [607/1000] RAWG fetch unmapped: Duck Game (AppID: 312530) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:41.366+0000] {rawg.py:108} INFO - [608/1000] RAWG fetch unmapped: Ghostrunner (AppID: 1139900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:42.153+0000] {rawg.py:108} INFO - [609/1000] RAWG fetch unmapped: RuneScape  (AppID: 1343400) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:46.314+0000] {rawg.py:108} INFO - [610/1000] RAWG fetch unmapped: Freddy Fazbear's Pizzeria Simulator (AppID: 738060) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:47.197+0000] {rawg.py:108} INFO - [611/1000] RAWG fetch unmapped: Creative Destruction (AppID: 893520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:50.843+0000] {rawg.py:108} INFO - [612/1000] RAWG fetch unmapped: Shadowrun Returns (AppID: 234650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:51.630+0000] {rawg.py:108} INFO - [613/1000] RAWG fetch unmapped: Dead Frontier 2 (AppID: 744900) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:52.687+0000] {rawg.py:108} INFO - [614/1000] RAWG fetch unmapped: Microsoft Flight Simulator X: Steam Edition (AppID: 314160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:53.561+0000] {rawg.py:108} INFO - [615/1000] RAWG fetch unmapped: Street Fighter 6 (AppID: 1364780) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:54.988+0000] {rawg.py:108} INFO - [616/1000] RAWG fetch unmapped: Return to Castle Wolfenstein (AppID: 9010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:56.897+0000] {rawg.py:108} INFO - [617/1000] RAWG fetch unmapped: Life is Strange: Before the Storm (AppID: 554620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:57.733+0000] {rawg.py:108} INFO - [618/1000] RAWG fetch unmapped: Assassin's Creed Syndicate (AppID: 368500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:29:59.492+0000] {rawg.py:108} INFO - [619/1000] RAWG fetch unmapped: Dead Space (2008) (AppID: 17470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:00.168+0000] {rawg.py:108} INFO - [620/1000] RAWG fetch unmapped: Awesomenauts (AppID: 204300) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:00.998+0000] {rawg.py:108} INFO - [621/1000] RAWG fetch unmapped: SoulWorker - Anime Action MMO (AppID: 630100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:02.139+0000] {rawg.py:108} INFO - [622/1000] RAWG fetch unmapped: Shadow of the Tomb Raider: Definitive Edition (AppID: 750920) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:25.126+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 1/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out.. Menunggu 2s sebelum retry.
+[2026-09-01T17:30:27.533+0000] {rawg.py:108} INFO - [623/1000] RAWG fetch unmapped: Line of Sight (AppID: 436520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:28.384+0000] {rawg.py:108} INFO - [624/1000] RAWG fetch unmapped: HITMAN World of Assassination (AppID: 1659040) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:29.293+0000] {rawg.py:108} INFO - [625/1000] RAWG fetch unmapped: Neon Abyss (AppID: 788100) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:30.138+0000] {rawg.py:108} INFO - [626/1000] RAWG fetch unmapped: Tribes of Midgard (AppID: 858820) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:30.924+0000] {rawg.py:108} INFO - [627/1000] RAWG fetch unmapped: OUTRIDERS (AppID: 680420) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:31.611+0000] {rawg.py:108} INFO - [628/1000] RAWG fetch unmapped: CODE VEIN (AppID: 678960) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:34.895+0000] {rawg.py:108} INFO - [629/1000] RAWG fetch unmapped: Warhammer 40,000: Chaos Gate - Daemonhunters (AppID: 1611910) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:35.861+0000] {rawg.py:108} INFO - [630/1000] RAWG fetch unmapped: To the Moon (AppID: 206440) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:36.628+0000] {rawg.py:108} INFO - [631/1000] RAWG fetch unmapped: Secret in Story (AppID: 613010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:37.490+0000] {rawg.py:108} INFO - [632/1000] RAWG fetch unmapped: Iron Snout (AppID: 424280) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:38.333+0000] {rawg.py:108} INFO - [633/1000] RAWG fetch unmapped: Vindictus (AppID: 212160) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:39.116+0000] {rawg.py:108} INFO - [634/1000] RAWG fetch unmapped: Mafia II: Definitive Edition (AppID: 1030830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:39.862+0000] {rawg.py:108} INFO - [635/1000] RAWG fetch unmapped: Hacknet (AppID: 365450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:40.793+0000] {rawg.py:108} INFO - [636/1000] RAWG fetch unmapped: Ryse: Son of Rome (AppID: 302510) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:42.270+0000] {rawg.py:108} INFO - [637/1000] RAWG fetch unmapped: The Elder Scrolls IV: Oblivion Game of the Year Edition (2009) (AppID: 22330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:43.574+0000] {rawg.py:108} INFO - [638/1000] RAWG fetch unmapped: Persona 5 Royal (AppID: 1687950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:44.482+0000] {rawg.py:108} INFO - [639/1000] RAWG fetch unmapped: Magicka 2 (AppID: 238370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:45.778+0000] {rawg.py:108} INFO - [640/1000] RAWG fetch unmapped: Monaco: What's Yours Is Mine (AppID: 113020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:46.771+0000] {rawg.py:108} INFO - [641/1000] RAWG fetch unmapped: TCG Card Shop Simulator (AppID: 3070070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:48.034+0000] {rawg.py:108} INFO - [642/1000] RAWG fetch unmapped: A Dance of Fire and Ice (AppID: 977950) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:48.799+0000] {rawg.py:108} INFO - [643/1000] RAWG fetch unmapped: Hitman: Blood Money (AppID: 6860) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:49.896+0000] {rawg.py:108} INFO - [644/1000] RAWG fetch unmapped: Crucible Beta (AppID: 1057240) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:51.009+0000] {rawg.py:108} INFO - [645/1000] RAWG fetch unmapped: The Evil Within (AppID: 268050) -> Mendapatkan 5 kandidat
+[2026-09-01T17:30:51.835+0000] {rawg.py:108} INFO - [646/1000] RAWG fetch unmapped: Glass Masquerade (AppID: 511470) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:07.190+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 1/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 2s sebelum retry.
+[2026-09-01T17:31:24.253+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 2/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 4s sebelum retry.
+[2026-09-01T17:31:28.762+0000] {rawg.py:108} INFO - [647/1000] RAWG fetch unmapped: Knight Online (AppID: 389430) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:30.115+0000] {rawg.py:108} INFO - [648/1000] RAWG fetch unmapped: ENDLESS Legend (AppID: 289130) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:31.386+0000] {rawg.py:108} INFO - [649/1000] RAWG fetch unmapped: South Park: The Fractured But Whole (AppID: 488790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:35.114+0000] {rawg.py:108} INFO - [650/1000] RAWG fetch unmapped: GTFO (AppID: 493520) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:35.866+0000] {rawg.py:108} INFO - [651/1000] RAWG fetch unmapped: Half-Life: Alyx (AppID: 546560) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:36.717+0000] {rawg.py:108} INFO - [652/1000] RAWG fetch unmapped: Stories: The Path of Destinies (AppID: 439190) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:37.727+0000] {rawg.py:108} INFO - [653/1000] RAWG fetch unmapped: The Darkness II (AppID: 67370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:38.776+0000] {rawg.py:108} INFO - [654/1000] RAWG fetch unmapped: The Awesome Adventures of Captain Spirit (AppID: 845070) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:40.129+0000] {rawg.py:108} INFO - [655/1000] RAWG fetch unmapped: Shadowverse CCG (AppID: 453480) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:41.472+0000] {rawg.py:108} INFO - [656/1000] RAWG fetch unmapped: NARUTO TO BORUTO: SHINOBI STRIKER (AppID: 633230) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:42.330+0000] {rawg.py:108} INFO - [657/1000] RAWG fetch unmapped: STAR WARS Knights of the Old Republic (AppID: 32370) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:43.027+0000] {rawg.py:108} INFO - [658/1000] RAWG fetch unmapped: Call of Duty: WWII (AppID: 476600) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:43.758+0000] {rawg.py:108} INFO - [659/1000] RAWG fetch unmapped: Red Dead Online (AppID: 1404210) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:44.481+0000] {rawg.py:108} INFO - [660/1000] RAWG fetch unmapped: ROUNDS (AppID: 1557740) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:45.464+0000] {rawg.py:108} INFO - [661/1000] RAWG fetch unmapped: Heart of a Warrior (AppID: 1619450) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:46.143+0000] {rawg.py:108} INFO - [662/1000] RAWG fetch unmapped: GRIS (AppID: 683320) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:46.902+0000] {rawg.py:108} INFO - [663/1000] RAWG fetch unmapped: One-armed robber (AppID: 2551020) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:47.899+0000] {rawg.py:108} INFO - [664/1000] RAWG fetch unmapped: OpenTTD (AppID: 1536610) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:48.785+0000] {rawg.py:108} INFO - [665/1000] RAWG fetch unmapped: Ultimate Chicken Horse (AppID: 386940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:49.650+0000] {rawg.py:108} INFO - [666/1000] RAWG fetch unmapped: Besiege (AppID: 346010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:50.512+0000] {rawg.py:108} INFO - [667/1000] RAWG fetch unmapped: Back 4 Blood (AppID: 924970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:51.817+0000] {rawg.py:108} INFO - [668/1000] RAWG fetch unmapped: Romero's Aftermath (AppID: 349700) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:53.437+0000] {rawg.py:108} INFO - [669/1000] RAWG fetch unmapped: ENDLESS Space - Definitive Edition (AppID: 208140) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:54.190+0000] {rawg.py:108} INFO - [670/1000] RAWG fetch unmapped: AirMech Strike (AppID: 206500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:54.877+0000] {rawg.py:108} INFO - [671/1000] RAWG fetch unmapped: Tropico 4 (AppID: 57690) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:55.725+0000] {rawg.py:108} INFO - [672/1000] RAWG fetch unmapped: God of War Ragnarök (AppID: 2322010) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:56.572+0000] {rawg.py:108} INFO - [673/1000] RAWG fetch unmapped: Depth (AppID: 274940) -> Mendapatkan 5 kandidat
+[2026-09-01T17:31:57.530+0000] {rawg.py:108} INFO - [674/1000] RAWG fetch unmapped: DDraceNetwork (AppID: 412220) -> Mendapatkan 1 kandidat
+[2026-09-01T17:31:58.754+0000] {rawg.py:108} INFO - [675/1000] RAWG fetch unmapped: PowerWash Simulator (AppID: 1290000) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:00.338+0000] {rawg.py:108} INFO - [676/1000] RAWG fetch unmapped: Tiny Tina's Wonderlands (AppID: 1286680) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:01.068+0000] {rawg.py:108} INFO - [677/1000] RAWG fetch unmapped: Gothic 3 (AppID: 39500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:01.943+0000] {rawg.py:108} INFO - [678/1000] RAWG fetch unmapped: Football Manager 2019 (AppID: 872790) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:03.170+0000] {rawg.py:108} INFO - [679/1000] RAWG fetch unmapped: Pillars of Eternity (AppID: 291650) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:03.956+0000] {rawg.py:108} INFO - [680/1000] RAWG fetch unmapped: Crysis Warhead (AppID: 17330) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:04.653+0000] {rawg.py:108} INFO - [681/1000] RAWG fetch unmapped: Gorilla Tag (AppID: 1533390) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:20.019+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 1/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 2s sebelum retry.
+[2026-09-01T17:32:22.431+0000] {rawg.py:108} INFO - [682/1000] RAWG fetch unmapped: Darksiders III (AppID: 606280) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:23.324+0000] {rawg.py:108} INFO - [683/1000] RAWG fetch unmapped: Total War: EMPIRE – Definitive Edition (AppID: 10500) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:24.183+0000] {rawg.py:108} INFO - [684/1000] RAWG fetch unmapped: Legends of IdleOn - Idle MMO (AppID: 1476970) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:24.936+0000] {rawg.py:108} INFO - [685/1000] RAWG fetch unmapped: Need for Speed Payback (AppID: 1262580) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:25.704+0000] {rawg.py:108} INFO - [686/1000] RAWG fetch unmapped: Plague Inc: Evolved (AppID: 246620) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:26.524+0000] {rawg.py:108} INFO - [687/1000] RAWG fetch unmapped: AX:EL - Air XenoDawn (AppID: 319830) -> Mendapatkan 5 kandidat
+[2026-09-01T17:32:41.879+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 1/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 2s sebelum retry.
+[2026-09-01T17:32:58.939+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 2/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 4s sebelum retry.
+[2026-09-01T17:33:18.004+0000] {rawg.py:137} WARNING - Request RAWG gagal (percobaan 3/3): HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15). Menunggu 8s sebelum retry.
+[2026-09-01T17:33:26.005+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-01T17:33:26.006+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 708, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 1252, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 1104, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 539, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 371, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/src/extract/rawg.py", line 131, in _get_with_retry
+    response = requests.get(url, params=params, timeout=15)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.rawg.io', port=443): Read timed out. (read timeout=15)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/steam_analytics.py", line 71, in extract_rawg_to_bronze
+    rawg_raw_responses = rawg.fetch_rawg_for_unmapped(unmapped_games)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/extract/rawg.py", line 104, in fetch_rawg_for_unmapped
+    candidates = search_top_n(game_name, n=n_candidates)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/extract/rawg.py", line 87, in search_top_n
+    response = _get_with_retry(f"{RAWG_BASE_URL}/games", params, retries=retries)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/extract/rawg.py", line 143, in _get_with_retry
+    raise RuntimeError(f"Request ke {url} gagal setelah {retries} percobaan") from last_exception
+RuntimeError: Request ke https://api.rawg.io/api/games gagal setelah 3 percobaan
+[2026-09-01T17:33:26.028+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=steam_analytics_daily, task_id=extract_rawg_to_bronze, run_id=scheduled__2026-08-31T02:00:00+00:00, execution_date=20260831T020000, start_date=20260901T171925, end_date=20260901T173326
+[2026-09-01T17:33:26.042+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task extract_rawg_to_bronze (Request ke https://api.rawg.io/api/games gagal setelah 3 percobaan; 282)
+[2026-09-01T17:33:26.073+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-09-01T17:33:26.095+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-01T17:33:26.097+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
